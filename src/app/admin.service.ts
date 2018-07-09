@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core'
-import { of } from 'rxjs'
+import { of, Observable } from 'rxjs'
 import { Employee } from '../model/Employee';
 
 @Injectable({
@@ -8,7 +8,7 @@ import { Employee } from '../model/Employee';
 export class AdminService {
 
   constructor() { }
-  public getemployees() {
+  public getemployees():Observable<Employee[]> {
 
     let fakeUsers = [{ empid: 1, firstname: 'Dhiraj', lastname: 'Ray', email: 'dhiraj@gmail.com' },
     { empid: 1, firstname: 'Tom', lastname: 'Jac', email: 'Tom@gmail.com' },
