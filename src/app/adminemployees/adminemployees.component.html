@@ -39,18 +39,18 @@
 <div class="row form-group" [hidden]="isaddemployee">
   <table class="table">
     <tbody>
-      <tr>
+      <tr *ngFor="let emp of employees">
         <td scope="row">
-          <input type="text" class="form-control" placeholder="Emp ID" />
+          <input type="text" class="form-control" placeholder="Emp ID" [(ngModel)]="emp.empid" />
         </td>
         <td>
-          <input type="text" class="form-control" placeholder="First Name" />
+          <input type="text" class="form-control" placeholder="First Name" [(ngModel)]="emp.firstname" />
         </td>
         <td>
-          <input type="text" class="form-control" placeholder="Last Name" />
+          <input type="text" class="form-control" placeholder="Last Name" [(ngModel)]="emp.lastname" />
         </td>
         <td>
-          <input type="email" class="form-control" placeholder="Email" />
+          <input type="email" class="form-control" placeholder="Email" [(ngModel)]="emp.email" />
         </td>
       </tr>
     </tbody>
@@ -58,7 +58,13 @@
 </div>
 
 <div class="float-left">
-  <button type="button" class="btn btn-primary">Add</button>
+  <button type="button" class="btn btn-primary" (click)="addemployee()">Add</button>
+</div>
+<div class="float-left ml-1">
+    <button type="button" class="btn btn-secondary" (click)="saveemployee()">Save</button>
+  </div>
+<div class="float-right ml-1">
+  <button type="button" class="btn btn-secondary auto" (click)="removeemployee()">Cancel</button>
 </div>
 <div class="float-right">
   <button type="button" class="btn btn-primary">Import</button>
