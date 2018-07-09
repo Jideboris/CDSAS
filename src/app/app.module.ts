@@ -7,11 +7,13 @@ import { HttpClientModule } from '@angular/common/http'
 
 import { AppComponent } from './app.component';
 import { CreateadminComponent } from './createadmin/createadmin.component';
+import { AdminemployeesComponent } from './adminemployees/adminemployees.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CreateadminComponent
+    CreateadminComponent,
+    AdminemployeesComponent
   ],
   imports: [
     BrowserModule,
