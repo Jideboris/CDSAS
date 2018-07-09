@@ -4,35 +4,35 @@
 <form class="form">
   <div class="form-group row">
     <div class="col-3">
-      <label for="inputFname" class="form-label">First Name</label>
+      <label for="firstname" class="form-label">First Name</label>
     </div>
     <div>
-      <input type="text" class="form-control" id="inputFname" placeholder="">
+      <input type="text" class="form-control" id="firstname" placeholder="">
     </div>
   </div>
   <div class="form-group row">
     <div class="col-3">
-      <label for="inputSname" class="form-label">Last Name</label>
+      <label for="surename" class="form-label">Last Name</label>
     </div>
     <div>
-      <input type="text" class="form-control" id="inputSname" placeholder="">
+      <input type="text" class="form-control" id="surename" placeholder="">
     </div>
   </div>
   <div class="form-group row">
     <div class="col-3">
-      <label class="form-label" for="inputemail">Email address</label>
+      <label class="form-label" for="useremail">Email address</label>
     </div>
     <div>
-      <input type="email" class="form-control" id="inputemail" placeholder="ForExample@mail.com">
+      <input type="email" class="form-control" id="useremail" placeholder="ForExample@mail.com">
     </div>
   </div>
   <div class="form-group row">
     <div class="col-3">
-      <label class="form-label" for="PosOption">Select Position</label>
+      <label class="form-label" for="position">Select Position</label>
     </div>
 
     <div>
-      <select class="form-control" id="PosOption">
+      <select class="form-control" id="position">
         <!--Position options?-->
         <option>Admin Manager</option>
         <option>Project Manager</option>
@@ -48,57 +48,71 @@
   </div>
 
   <div class="form-group row">
-    <label class="col-sm-1 col-form-label" for="inputCompName">Company</label>
-    <div class="col-sm-5">
-      <input type="text" class="form-control" id="inputCompName" aria-describedby="" placeholder="">
+      <div class="col-3">
+        <label class="form-label" for="compname">Company</label>
+      </div>
+      <div>
+        <input type="text" class="form-control" id="compname">
+      </div>
     </div>
-  </div>
+
+    <div class="form-group row">
+        <div class="col-3">
+          <label class="form-label" for="compregnumber">Company registration number</label>
+        </div>
+        <div>
+          <input type="text" class="form-control" id="compregnumber">
+        </div>
+      </div>
 
   <div class="form-group row">
-    <label class="col-sm-1 col-form-label" for="cRegNumber">Company registration number</label>
-    <div class="col-sm-5">
-      <input type="text" class="form-control" id="inputCompRegNumber" aria-describedby="" placeholder="">
-    </div>
-  </div>
+        <div class="col-3">
+          <label class="form-label" for="Address">Address</label>
+        </div>
+        <div>
+          <input type="text" class="form-control" id="Address">
+        </div>
+      </div>
 
   <div class="form-group row">
-    <label class="col-sm-1 col-form-label" for="Address">Address</label>
-    <div class="col-sm-5">
-      <input type="text" class="form-control" id="inputAddress" aria-describedby="" placeholder="">
-    </div>
-  </div>
+        <div class="col-3">
+          <label class="form-label" for="contact">Contact No.</label>
+        </div>
+        <div>
+          <input type="tel" class="form-control" id="contact">
+        </div>
+      </div>
 
-  <div class="form-group row">
-    <label class="col-sm-0.5 col-form-label" for="userContactNumber">Contact No.</label>
-    <div class="col-sm-5">
-      <input type="tel" class="form-control" id="inputContNumber" aria-describedby="" placeholder="">
-    </div>
-  </div>
-
-  <div class="form-group row">
-    <label class="col-sm-1 col-form-label" for="validationDefault01">Username</label>
-    <div class="col-sm-5">
-      <input type="text" class="form-control" id="validationDefault01">
-    </div>
-  </div>
+      <div class="form-group row">
+          <div class="col-3">
+            <label class="form-label" for="username">Username</label>
+          </div>
+          <div>
+            <input type="text" class="form-control" id="username">
+          </div>
+        </div>
 
 
   <!--May add code that forces min and max character length for passwords-->
-  <div class="form-group row">
-    <label class="col-sm-1 col-form-label" for="exampleInputEmail1">Password</label>
-    <div class="col-sm-5">
-      <input type="password" class="form-control" id="exampleInputEmail1" aria-describedby="" placeholder="">
-      <small id="emailHelp" class="form-text text-muted">Please insure your password 8 to 14 characters long.</small>
-    </div>
-  </div>
+    <div class="form-group row">
+        <div class="col-3">
+          <label class="form-label" for="password">Password</label>
+        </div>
+        <div>
+          <input type="password" class="form-control" id="password">
+          <small id="emailHelp" class="form-text text-muted">Please insure your password 8 to 14 characters long.</small>
+        </div>
+      </div>
 
-  <div class="form-group row">
-    <label class="col-sm-1 col-form-label" for="exampleInputEmail1">Password confirm</label>
-    <div class="col-sm-5">
-      <input type="password" class="form-control" id="exampleInputEmail1" aria-describedby="PasswordCheck" placeholder="">
-      <small id="emailHelp" class="form-text text-muted">Please insure your password 8 to 14 characters long.</small>
-    </div>
-  </div>
+      <div class="form-group row">
+          <div class="col-3">
+            <label class="form-label" for="passwordconf">Password confirm</label>
+          </div>
+          <div>
+            <input type="password" class="form-control" id="passwordconf">
+            <small id="emailHelp" class="form-text text-muted">Please insure your password 8 to 14 characters long.</small>
+          </div>
+        </div>
 
   <hr>
   <div class="form-check">
@@ -111,5 +125,5 @@
 </form>
 
 <footer>
-
+   <br>
 </footer>
