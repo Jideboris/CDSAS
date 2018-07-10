@@ -16,18 +16,20 @@ export const initialState: AdminState = {
     loading: false
 }
 export function reducer(state = initialState, action: fromActions.ALL_REDUCER_ACTIONS): AdminState {
-
     switch (action.type) {
         case fromActions.GET_EMPLOYEES: {
+            console.log('fromActions.GET_EMPLOYEES')
             return {
                 ...state,
                 employees: {}, message: '', loading: true
-            };
+            }
         }
         case fromActions.GET_EMPLOYEES_DONE: {
+            console.log('fromActions.GET_EMPLOYEES_DONE')
+            console.log(action.payload)
             return {
                 ...state,
-                employees: action.payload, message:'', loading: false
+                employees: action.payload, message: '', loading: false
             }
         }
         case fromActions.GET_EMPLOYEES_FAILED: {

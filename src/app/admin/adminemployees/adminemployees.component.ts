@@ -5,6 +5,7 @@ import { Observable } from 'rxjs'
 import { AdminState } from '../store/reducers/admin'
 import { Store } from '@ngrx/store'
 import { getEmployees } from '../store/selectors/admin'
+import * as fromActions from '../store/actions/admin'
 
 @Component({
   selector: 'app-adminemployees',
@@ -19,10 +20,11 @@ export class AdminemployeesComponent implements OnInit {
   constructor(private store: Store<AdminState>, private adminservice: AdminService) {
     this.isaddemployee = true
     this.employees = []
-    this.getemployees()
-    //this.employees$ = this.store.select(getEmployees)
+    this.store.dispatch(new fromActions.GetEmployeesAction())
+    //this.getemployees()
+    this.employees$ = this.store.select(getEmployees)
 
-    //console.log(this.employees$)
+    console.log(this.employees$)
 
   }
 

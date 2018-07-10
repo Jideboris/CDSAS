@@ -26,7 +26,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let emp of employees">
+          <tr *ngFor="let emp of employees$ | async">
             <td>
               {{emp.empid}}
             </td>
