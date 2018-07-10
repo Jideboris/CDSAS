@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core'
+import { ActivatedRoute,Router} from '@angular/router'
 
 @Component({
   selector: 'app-createadmin',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core'
 })
 export class CreateadminComponent implements OnInit {
   model: any = {}
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {}
 
@@ -16,5 +17,6 @@ export class CreateadminComponent implements OnInit {
   }
   saveadmin() {
     alert('hello')
+    this.router.navigateByUrl('/addemployees')
   }
 }
