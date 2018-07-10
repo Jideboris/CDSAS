@@ -9,7 +9,7 @@ export const routes: Routes = [
     },
     {
         path: 'addemployees',
-        canActivate: [AuthGuard],
+       // canActivate: [AuthGuard],
         component: AdminemployeesComponent
     }
 ];
