@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core'
   styleUrls: ['./createadmin.component.css']
 })
 export class CreateadminComponent implements OnInit {
-
+  model: any = {}
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
+  onSubmit() {
+    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.model))
+  }
+  saveadmin() {
+    alert('hello')
+  }
 }

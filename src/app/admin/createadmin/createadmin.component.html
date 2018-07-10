@@ -1,129 +1,185 @@
-<div class="row form-group">
-  <h3>Administration registration form</h3>
-</div>
-<form class="form">
-  <div class="form-group row">
-    <div class="col-3">
-      <label for="firstname" class="form-label">First Name</label>
-    </div>
-    <div>
-      <input type="text" class="form-control" id="firstname" placeholder="">
+<div class="container">
+  <div class="row">
+    <div class="form-group">
+      <h3>Administration registration form</h3>
     </div>
   </div>
-  <div class="form-group row">
-    <div class="col-3">
-      <label for="surename" class="form-label">Last Name</label>
-    </div>
-    <div>
-      <input type="text" class="form-control" id="surename" placeholder="">
-    </div>
-  </div>
-  <div class="form-group row">
-    <div class="col-3">
-      <label class="form-label" for="useremail">Email address</label>
-    </div>
-    <div>
-      <input type="email" class="form-control" id="useremail" placeholder="ForExample@mail.com">
-    </div>
-  </div>
-  <div class="form-group row">
-    <div class="col-3">
-      <label class="form-label" for="position">Select Position</label>
-    </div>
+  <div class="form">
+    <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+      <div class="row form-group">
+        <div class="col-2">
+          <label for="firstName">First Name</label>
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" name="firstName" [(ngModel)]="model.firstName" #firstName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && firstName.invalid }"
+            required />
+          <div *ngIf="f.submitted && firstName.invalid" class="invalid-feedback">
+            <div *ngIf="firstName.errors.required">First Name is required</div>
+          </div>
+        </div>
 
-    <div>
-      <select class="form-control" id="position">
-        <!--Position options?-->
-        <option>Admin Manager</option>
-        <option>Project Manager</option>
-        <option>CEO</option>
-        <option>COO</option>
-        <option>Director</option>
-        <option>Team leader</option>
-        <option>Scrum manager</option>
-        <option>Other...</option>
-        <!--Send to other directory or opens text box from users self input-->
-      </select>
-    </div>
-  </div>
-
-  <div class="form-group row">
-      <div class="col-3">
-        <label class="form-label" for="compname">Company</label>
       </div>
-      <div>
-        <input type="text" class="form-control" id="compname">
-      </div>
-    </div>
+      <div class="row form-group">
+        <div class="col-2">
+          <label for="lastName">Last Name</label>
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" name="lastName" [(ngModel)]="model.lastName" #lastName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && lastName.invalid }"
+            required />
+          <div *ngIf="f.submitted && lastName.invalid" class="invalid-feedback">
+            <div *ngIf="lastName.errors.required">Last Name is required</div>
+          </div>
+        </div>
 
-    <div class="form-group row">
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && email.invalid }"
+          required email />
+        <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
+          <div *ngIf="email.errors.required">Email is required</div>
+          <div *ngIf="email.errors.email">Email must be a valid email address</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" name="password" [(ngModel)]="model.password" #password="ngModel" [ngClass]="{ 'is-invalid': f.submitted && password.invalid }"
+          required minlength="6" />
+        <div *ngIf="f.submitted && password.invalid" class="invalid-feedback">
+          <div *ngIf="password.errors.required">Password is required</div>
+          <div *ngIf="password.errors.minlength">Password must be at least 6 characters</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary">Register</button>
+      </div>
+    </form>
+  </div>
+  <div class="form">
+    <form class="needs-validation" novalidate>
+      <div class="form-group row">
         <div class="col-3">
-          <label class="form-label" for="compregnumber">Company registration number</label>
+          <label for="firstname" class="form-label">First Name</label>
         </div>
         <div>
-          <input type="text" class="form-control" id="compregnumber">
+          <input type="text" class="form-control" id="firstname" required>
+        </div>
+        <div class="invalid-tooltip">
+          Please choose a unique and valid username.
         </div>
       </div>
-
-  <div class="form-group row">
+      <div class="form-group row">
         <div class="col-3">
-          <label class="form-label" for="Address">Address</label>
+          <label for="surename" class="form-label">Last Name</label>
         </div>
         <div>
-          <input type="text" class="form-control" id="Address">
+          <input type="text" class="form-control" id="surename" required>
         </div>
       </div>
-
-  <div class="form-group row">
+      <div class="form-group row">
         <div class="col-3">
-          <label class="form-label" for="contact">Contact No.</label>
+          <label class="form-label" for="useremail">Email address</label>
         </div>
         <div>
-          <input type="tel" class="form-control" id="contact">
+          <input type="email" class="form-control" id="useremail" placeholder="ForExample@mail.com" required>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-3">
+          <label class="form-label" for="position">Select Position</label>
+        </div>
+
+        <div>
+          <select class="form-control" id="position">
+            <!--Position options?-->
+            <option>Admin Manager</option>
+            <option>Project Manager</option>
+            <option>CEO</option>
+            <option>COO</option>
+            <option>Director</option>
+            <option>Team leader</option>
+            <option>Scrum manager</option>
+            <option>Other...</option>
+            <!--Send to other directory or opens text box from users self input-->
+          </select>
         </div>
       </div>
 
       <div class="form-group row">
-          <div class="col-3">
-            <label class="form-label" for="username">Username</label>
-          </div>
-          <div>
-            <input type="text" class="form-control" id="username">
-          </div>
+        <div class="col-3">
+          <label class="form-label" for="compname">Company</label>
         </div>
+        <div>
+          <input type="text" class="form-control" id="compname" required>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-3">
+          <label class="form-label" for="compregnumber">Company registration number</label>
+        </div>
+        <div>
+          <input type="text" class="form-control" id="compregnumber" required>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-3">
+          <label class="form-label" for="Address">Address</label>
+        </div>
+        <div>
+          <textarea class="form-control" id="Address" rows="5" required></textarea>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-3">
+          <label class="form-label" for="contact">Contact No.</label>
+        </div>
+        <div>
+          <input type="tel" class="form-control" id="contact" required>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-3">
+          <label class="form-label" for="username">Username</label>
+        </div>
+        <div>
+          <input type="text" class="form-control" id="username" required>
+        </div>
+      </div>
 
 
-  <!--May add code that forces min and max character length for passwords-->
-    <div class="form-group row">
+      <!--May add code that forces min and max character length for passwords-->
+      <div class="form-group row">
         <div class="col-3">
           <label class="form-label" for="password">Password</label>
         </div>
         <div>
-          <input type="password" class="form-control" id="password">
+          <input type="password" class="form-control" id="password" required>
           <small id="emailHelp" class="form-text text-muted">Please insure your password 8 to 14 characters long.</small>
         </div>
       </div>
 
       <div class="form-group row">
-          <div class="col-3">
-            <label class="form-label" for="passwordconf">Password confirm</label>
-          </div>
-          <div>
-            <input type="password" class="form-control" id="passwordconf">
-            <small id="emailHelp" class="form-text text-muted">Please insure your password 8 to 14 characters long.</small>
-          </div>
+        <div class="col-3">
+          <label class="form-label" for="passwordconf">Password confirm</label>
         </div>
+        <div>
+          <input type="password" class="form-control" id="passwordconf">
+          <small id="emailHelp" class="form-text text-muted">Please insure your password 8 to 14 characters long.</small>
+        </div>
+      </div>
 
-  <hr>
-  <div class="form-check">
-    <input type="checkbox" class="form-check-input" id="FullSubmit">
-    <label class="form-check-label" for="check">Agree to terms and conditions</label>
-    <!--Link terms and conditions-->
+      <hr>
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="FullSubmit">
+        <label class="form-check-label" for="check">Agree to terms and conditions</label>
+        <!--Link terms and conditions-->
+      </div>
+      <br>
+      <button type="submit" class="btn btn-primary" (click)="saveadmin()">Submit</button>
+    </form>
   </div>
-  <br>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
-
-<footer>
-   <br>
-</footer>
+</div>
