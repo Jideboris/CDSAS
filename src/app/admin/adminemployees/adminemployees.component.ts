@@ -21,15 +21,9 @@ export class AdminemployeesComponent implements OnInit {
     this.isaddemployee = true
     this.employees = []
     this.store.dispatch(new fromActions.GetEmployeesAction())
-    //this.getemployees()
     this.employees$ = this.store.select(getEmployees)
-
-    console.log(this.employees$)
-
   }
-
   ngOnInit() {
-
   }
   getemployees() {
     this.adminservice.getemployees().subscribe(
