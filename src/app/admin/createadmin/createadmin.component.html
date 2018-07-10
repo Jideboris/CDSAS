@@ -11,8 +11,7 @@
           <label for="firstname">First Name</label>
         </div>
         <div class="col">
-          <input type="text" class="form-control" name="firstname" [(ngModel)]="model.firstname" 
-          #firstname="ngModel" [ngClass]="{ 'is-invalid': f.submitted && firstname.invalid }"
+          <input type="text" class="form-control" name="firstname" [(ngModel)]="model.firstname" #firstname="ngModel" [ngClass]="{ 'is-invalid': f.submitted && firstname.invalid }"
             required />
           <div *ngIf="f.submitted && firstname.invalid" class="invalid-feedback">
             <div *ngIf="firstname.errors.required">First Name is required</div>
@@ -38,8 +37,8 @@
           <label for="email">Email</label>
         </div>
         <div class="col">
-          <input type="text" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && email.invalid }"
-            required email />
+          <input type="email" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && email.invalid }"
+            required/>
           <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
             <div *ngIf="email.errors.required">Email is required</div>
             <div *ngIf="email.errors.email">Email must be a valid email address</div>
@@ -53,9 +52,9 @@
         <div class="col">
           <input type="text" class="form-control" name="username" [(ngModel)]="model.username" #username="ngModel" [ngClass]="{ 'is-invalid': f.submitted && username.invalid }"
             required />
-        </div>
-        <div *ngIf="f.submitted && username.invalid" class="invalid-feedback">
-          <div *ngIf="username.errors.required">Username is required</div>
+          <div *ngIf="f.submitted && username.invalid" class="invalid-feedback">
+            <div *ngIf="username.errors.required">Username is required</div>
+          </div>
         </div>
       </div>
       <div class="row form-group">
@@ -77,20 +76,18 @@
         </div>
         <div class="col">
           <input type="password" class="form-control" name="passwordconfirm" [(ngModel)]="model.passwordconfirm" #passwordconfirm="ngModel"
-            [ngClass]="{ 'is-invalid': f.submitted && passwordconfirm.invalid }" required />
-        </div>
-        <div *ngIf="f.submitted && passwordconfirm.invalid" class="invalid-feedback">
-          <div *ngIf="passwordconfirm.errors.required">Please confirm your password</div>
+            [ngClass]="{ 'is-invalid': f.submitted && passwordconfirm.invalid }" required minlength="6" />
+          <div *ngIf="f.submitted && passwordconfirm.invalid" class="invalid-feedback">
+            <div *ngIf="passwordconfirm.errors.required">Please confirm your password</div>
+          </div>
         </div>
       </div>
-
       <div class="row form-group">
         <div class="col-3">
           <label for="position">Select position</label>
         </div>
         <div class="col">
-          <select class="form-control" id="position" name="position" [(ngModel)]="model.position"
-           #position="ngModel" [ngClass]="{ 'is-invalid': f.submitted && position.invalid }"
+          <select class="form-control" id="position" name="position" [(ngModel)]="model.position" #position="ngModel" [ngClass]="{ 'is-invalid': f.submitted && position.invalid }"
             required>
             <option>Admin Manager</option>
             <option>Project Manager</option>
@@ -101,9 +98,9 @@
             <option>Scrum manager</option>
             <option>Other...</option>
           </select>
-        </div>
-        <div *ngIf="f.submitted && position.invalid" class="invalid-feedback">
-          <div *ngIf="position.errors.required">Please select your position or job title</div>
+          <div *ngIf="f.submitted && position.invalid" class="invalid-feedback">
+            <div *ngIf="position.errors.required">Please select your position or job title</div>
+          </div>
         </div>
       </div>
       <div class="row form-group">
@@ -113,9 +110,9 @@
         <div class="col">
           <input type="text" class="form-control" name="companyname" [(ngModel)]="model.companyname" #companyname="ngModel" [ngClass]="{ 'is-invalid': f.submitted && companyname.invalid }"
             required />
-        </div>
-        <div *ngIf="f.submitted && companyname.invalid" class="invalid-feedback">
-          <div *ngIf="companyname.errors.required">Company name is required</div>
+          <div *ngIf="f.submitted && companyname.invalid" class="invalid-feedback">
+            <div *ngIf="companyname.errors.required">Company name is required</div>
+          </div>
         </div>
       </div>
       <div class="row form-group">
@@ -125,9 +122,9 @@
         <div class="col">
           <input type="text" class="form-control" name="companyregnumber" [(ngModel)]="model.companyregnumber" #companyregnumber="ngModel"
             [ngClass]="{ 'is-invalid': f.submitted && companyregnumber.invalid }" required />
-        </div>
-        <div *ngIf="f.submitted && companyregnumber.invalid" class="invalid-feedback">
-          <div *ngIf="companyregnumber.errors.required">Registration number name is required</div>
+          <div *ngIf="f.submitted && companyregnumber.invalid" class="invalid-feedback">
+            <div *ngIf="companyregnumber.errors.required">Registration number name is required</div>
+          </div>
         </div>
       </div>
       <div class="row form-group">
@@ -137,9 +134,9 @@
         <div class="col">
           <textarea class="form-control" id="address" name="address" [(ngModel)]="model.address" #address="ngModel" [ngClass]="{ 'is-invalid': f.submitted && address.invalid }"
             rows="5" required></textarea>
-        </div>
-        <div *ngIf="f.submitted && address.invalid" class="invalid-feedback">
-          <div *ngIf="address.errors.required">Address is required</div>
+          <div *ngIf="f.submitted && address.invalid" class="invalid-feedback">
+            <div *ngIf="address.errors.required">Address is required</div>
+          </div>
         </div>
       </div>
       <div class="row form-group">
@@ -147,12 +144,11 @@
           <label for="contact">Contact No.</label>
         </div>
         <div class="col">
-          <input type="tel" class="form-control" name="contact"
-           [(ngModel)]="model.contact" #contact="ngModel" [ngClass]="{ 'is-invalid': f.submitted && contact.invalid }"
+          <input type="tel" class="form-control" name="contact" [(ngModel)]="model.contact" #contact="ngModel" [ngClass]="{'is-invalid': f.submitted && contact.invalid }"
             required />
-        </div>
-        <div *ngIf="f.submitted && contact.invalid" class="invalid-feedback">
-          <div *ngIf="contact.errors.required">A contact number is required</div>
+          <div *ngIf="f.submitted && contact.invalid" class="invalid-feedback">
+            <div *ngIf="contact.errors.required">A contact number is required</div>
+          </div>
         </div>
       </div>
       <div class="form-group">
