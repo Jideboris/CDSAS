@@ -1,4 +1,3 @@
-import { Employee } from '../../model/Employee'
 import * as fromActions from '../actions/admin'
 
 export interface AppAdminState {

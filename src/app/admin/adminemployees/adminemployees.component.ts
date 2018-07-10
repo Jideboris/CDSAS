@@ -1,6 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core'
-import { Employee } from '../../model/Employee'
+import { Employee } from '../model/Employee'
 import { AdminService } from '../admin.service'
+import { Observable } from 'rxjs'
+import { AdminState } from '../store/reducers/admin'
+import { Store } from '@ngrx/store'
+import { getEmployees } from '../store/selectors/admin'
 
 @Component({
   selector: 'app-adminemployees',
@@ -10,11 +14,18 @@ import { AdminService } from '../admin.service'
 export class AdminemployeesComponent implements OnInit {
   @Input() isaddemployee: boolean
   @Input() employees: Employee[]
+  employees$: Observable<Employee[]>
 
-  constructor(private adminservice: AdminService) {
+  constructor(private store: Store<AdminState>, private adminservice: AdminService) {
     this.isaddemployee = true
     this.employees = []
+    this.getemployees()
+    //this.employees$ = this.store.select(getEmployees)
+
+    //console.log(this.employees$)
+
   }
+
   ngOnInit() {
 
   }

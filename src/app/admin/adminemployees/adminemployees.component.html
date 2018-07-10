@@ -1,0 +1,79 @@
+<div class="container">
+  <div class="row">
+    <div class="form-group">
+      <h3>Employees Register</h3>
+    </div>
+  </div>
+
+  <div class="row mb-2 float-right">
+      <div class="ml-1">
+          <button type="button" class="btn btn-primary">Publish</button>
+        </div>
+        <div class="ml-1">
+            <button type="button" class="btn btn-primary">Import</button>
+        </div>
+  </div>
+
+  <div class="form-group">
+    <div class="table-responsive">
+      <table class="table">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">Employee ID</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let emp of employees">
+            <td>
+              {{emp.empid}}
+            </td>
+            <td>
+              {{emp.firstname}}
+            </td>
+            <td>
+              {{emp.lastname}}
+            </td>
+            <td>
+              {{emp.email}}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="form-group" [hidden]="isaddemployee">
+    <table class="table">
+      <tbody>
+        <tr *ngFor="let emp of employees">
+          <td scope="row">
+            <input type="text" class="form-control" placeholder="Emp ID" [(ngModel)]="emp.empid" />
+          </td>
+          <td>
+            <input type="text" class="form-control" placeholder="First Name" [(ngModel)]="emp.firstname" />
+          </td>
+          <td>
+            <input type="text" class="form-control" placeholder="Last Name" [(ngModel)]="emp.lastname" />
+          </td>
+          <td>
+            <input type="email" class="form-control" placeholder="Email" [(ngModel)]="emp.email" />
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="row float-right">
+    <div class="float-left ml-1">
+      <button type="button" class="btn btn-primary" (click)="addemployee()">Add</button>
+    </div>
+    <div class="float-left ml-1">
+      <button type="button" class="btn btn-secondary" (click)="saveemployee()">Save</button>
+    </div>
+    <div class="float-right ml-1">
+      <button type="button" class="btn btn-secondary auto" (click)="removeemployee()">Cancel</button>
+    </div>
+  </div>
+</div>
