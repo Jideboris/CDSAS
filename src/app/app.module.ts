@@ -5,11 +5,17 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { HttpClientModule } from '@angular/common/http'
 import { AppComponent } from './app.component'
 import { AdminModule } from './admin/admin.module'
-import { AuthGuard } from './authguard.service'
+import { AuthGuard } from './authguard.service';
+import { BoardComponent } from './board/board.component';
+import { AnswerComponent } from './answer/answer.component';
+import { LoginComponent } from './login/login.component'
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    BoardComponent,
+    AnswerComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
