@@ -23,8 +23,10 @@
 
 .left {
     margin-left: 5%;
+    margin-right: 2%;
     width: 15%;
-    background-color: blue;
+    background-color:darkblue;
+    box-sizing: border-box;
     /* height: 1000px; */
     
 }
@@ -32,6 +34,6 @@
     width: 10%;
 }
 .middle {
-    width: 70%;
+    width: 68%;
     padding: 15px;
 }
