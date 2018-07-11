@@ -8,14 +8,20 @@ import { AdminModule } from './admin/admin.module'
 import { AuthGuard } from './authguard.service';
 import { BoardComponent } from './board/board.component';
 import { AnswerComponent } from './answer/answer.component';
-import { LoginComponent } from './login/login.component'
+import { LoginComponent } from './login/login.component';
+import { AnswerSingleComponent } from './answer-single/answer-single.component';
+import { AnswerMultipleComponent } from './answer-multiple/answer-multiple.component';
+import { AnswerWriteComponent } from './answer-write/answer-write.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     BoardComponent,
     AnswerComponent,
-    LoginComponent
+    LoginComponent,
+    AnswerSingleComponent,
+    AnswerMultipleComponent,
+    AnswerWriteComponent
   ],
   imports: [
     BrowserModule,

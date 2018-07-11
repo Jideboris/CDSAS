@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AnswerComponent } from './answer.component';
+import { AnswerMultipleComponent } from './answer-multiple.component';
 
-describe('AnswerComponent', () => {
-  let component: AnswerComponent;
-  let fixture: ComponentFixture<AnswerComponent>;
+describe('AnswerMultipleComponent', () => {
+  let component: AnswerMultipleComponent;
+  let fixture: ComponentFixture<AnswerMultipleComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AnswerComponent ]
+      declarations: [ AnswerMultipleComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AnswerComponent);
+    fixture = TestBed.createComponent(AnswerMultipleComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
