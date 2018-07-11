@@ -35,11 +35,12 @@
           <label for="email">Email</label>
         </div>
         <div class="col">
-          <input type="email" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && email.invalid }"
-            required/>
+          <input type="email" class="form-control" name="email" 
+          [(ngModel)]="model.email" #email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && email.invalid }"
+          pattern="[^ @]*@[^ @]*" required/>
           <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
             <div *ngIf="email.errors.required">Email is required</div>
-            <div *ngIf="email.errors.email">Email must be a valid email address</div>
+            <div *ngIf="email.errors.pattern">Email must be a valid email address</div>
           </div>
         </div>
       </div>
@@ -118,7 +119,7 @@
           <label for="companyregnumber">Company registration number</label>
         </div>
         <div class="col">
-          <input type="text" class="form-control" name="companyregnumber" [(ngModel)]="model.companyregnumber" #companyregnumber="ngModel"
+          <input type="number" class="form-control" name="companyregnumber" [(ngModel)]="model.companyregnumber" #companyregnumber="ngModel"
             [ngClass]="{ 'is-invalid': f.submitted && companyregnumber.invalid }" required />
           <div *ngIf="f.submitted && companyregnumber.invalid" class="invalid-feedback">
             <div *ngIf="companyregnumber.errors.required">Registration number name is required</div>
@@ -143,9 +144,10 @@
         </div>
         <div class="col">
           <input type="tel" class="form-control" name="contact" [(ngModel)]="model.contact" #contact="ngModel" [ngClass]="{'is-invalid': f.submitted && contact.invalid }"
-            required />
+            pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"  required />
           <div *ngIf="f.submitted && contact.invalid" class="invalid-feedback">
             <div *ngIf="contact.errors.required">A contact number is required</div>
+            <div *ngIf="contact.errors.pattern">Number is not valid</div>
           </div>
         </div>
       </div>
