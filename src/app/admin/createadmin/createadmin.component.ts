@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core'
-import { ActivatedRoute,Router} from '@angular/router'
+import { Router} from '@angular/router'
+import { AdminService } from '../admin.service'
 
 @Component({
   selector: 'app-createadmin',
@@ -8,7 +9,7 @@ import { ActivatedRoute,Router} from '@angular/router'
 })
 export class CreateadminComponent implements OnInit {
   model: any = {}
-  constructor(private router: Router) { }
+  constructor(private router: Router,private adminservice: AdminService) { }
 
   ngOnInit() {}
 
