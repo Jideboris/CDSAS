@@ -144,7 +144,7 @@
         </div>
         <div class="col">
           <input type="tel" class="form-control" name="contact" [(ngModel)]="model.contact" #contact="ngModel" [ngClass]="{'is-invalid': f.submitted && contact.invalid }"
-            pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"  required />
+            pattern="[0-9]{3}[0-9]{4}[0-9]{4}"  required />
           <div *ngIf="f.submitted && contact.invalid" class="invalid-feedback">
             <div *ngIf="contact.errors.required">A contact number is required</div>
             <div *ngIf="contact.errors.pattern">Number is not valid</div>

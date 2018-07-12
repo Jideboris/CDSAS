@@ -3,6 +3,7 @@ import { of, Observable } from 'rxjs'
 import { Employee } from './model/Employee'
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { map } from 'rxjs/operators'
+import { SAVE_ADMIN_URL } from '../constants'
 
 
 @Injectable({
@@ -20,11 +21,10 @@ export class AdminService {
     return of<Employee[]>(fakeUsers)
   }
   public saveAdmin(admin: string): Observable<any> {
-    //   "content-type": "application/x-www-form-urlencoded",
     let output = {}
     let options = new HttpHeaders().set('Content-Type', 'application/json')
 
-    this.http.post("http://localhost:3000/api/v1/saveadmin", admin, { headers: options })
+    this.http.post(SAVE_ADMIN_URL, admin, { headers: options })
       .subscribe(result => { output = result })
     return of(output)
   }
