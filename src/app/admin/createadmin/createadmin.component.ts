@@ -23,6 +23,8 @@ export class CreateadminComponent implements OnInit, OnDestroy {
     this.sub = this.route.params.subscribe(params => {
       this.code = params['client-code']
       this.model.client = this.code
+      //check if the code is still valid and active
+      this.router.navigateByUrl('/login')
     })
   }
   onSubmit() {
