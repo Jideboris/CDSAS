@@ -5,9 +5,9 @@ export const GET_EMPLOYEES = "GET_EMPLOYEES"
 export const GET_EMPLOYEES_DONE = "GET_EMPLOYEES_DONE"
 export const GET_EMPLOYEES_FAILED = 'GET_EMPLOYEES_FAILED'
 
-export const SAVE_ADMIN = "SAVE_ADMIN"
-export const SAVE_ADMIN_DONE = "SAVE_ADMIN_DONE"
-export const SAVE_ADMIN_FAILED = 'SAVE_ADMIN_FAILED'
+export const ADD_ADMIN = "ADD_ADMIN"
+export const ADD_ADMIN_DONE = "ADD_ADMIN_DONE"
+export const ADD_ADMIN_FAILED = 'ADD_ADMIN_FAILED'
 
 export class GetEmployeesAction implements Action {
   readonly type = GET_EMPLOYEES
@@ -23,15 +23,15 @@ export class GetEmployeeFailedAction implements Action {
 }
 
 export class SaveAdmminAction implements Action {
-  readonly type = SAVE_ADMIN
+  readonly type = ADD_ADMIN
   constructor(public payload: any) { }
 }
 export class SaveAdminDoneAction implements Action {
-  readonly type = SAVE_ADMIN_DONE
+  readonly type = ADD_ADMIN_DONE
   constructor(public payload: any) { }
 }
 export class SaveAdminFailedAction implements Action {
-  readonly type = SAVE_ADMIN_FAILED
+  readonly type = ADD_ADMIN_FAILED
   constructor(public payload: any) { }
 }
 export type ALL_REDUCER_ACTIONS

@@ -35,18 +35,20 @@ export function reducer(state = initialState, action: fromActions.ALL_REDUCER_AC
                 ...state, message: action.payload, loading: false
             }
         }
-        case fromActions.SAVE_ADMIN: {
+        case fromActions.ADD_ADMIN: {
+            console.log('ADD_ADMIN')
             return {
                 ...state, loading: true
             }
         }
-        case fromActions.SAVE_ADMIN_DONE: {
+        case fromActions.ADD_ADMIN_DONE: {
+            console.log('ADD_ADMIN_DONE')
             return {
                 ...state,
                 admin: action.payload, message: '', loading: false
             }
         }
-        case fromActions.SAVE_ADMIN_FAILED: {
+        case fromActions.ADD_ADMIN_FAILED: {
             return {
                 ...state, message: action.payload, loading: false
             }

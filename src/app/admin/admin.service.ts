@@ -20,7 +20,7 @@ export class AdminService {
     return of<Employee[]>(fakeUsers)
   }
   public saveAdmin(admin: string): Observable<any> {
-    console.log('here-service')
+    console.log('here-service'+ admin)
     return of()
   }
 }
