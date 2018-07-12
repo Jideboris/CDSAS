@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core'
+import { Component, OnInit, OnDestroy, Input } from '@angular/core'
 import { Router, ActivatedRoute, ParamMap } from '@angular/router'
 import { Store } from '../../../../node_modules/@ngrx/store'
 import { AdminState } from '../store/reducers/admin'
@@ -13,6 +13,7 @@ export class CreateadminComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.sub.unsubscribe()
   }
+  @Input() message: string = ''
   model: any = {}
   code: string
   private sub: any;
@@ -25,7 +26,13 @@ export class CreateadminComponent implements OnInit, OnDestroy {
     })
   }
   onSubmit() {
-    this.store.dispatch(new fromActions.SaveAdmminAction(JSON.stringify(this.model)))
+    let mod = this.model
+    if (mod.password === mod.passwordconfirm && this.code !== '') {
+      this.store.dispatch(new fromActions.SaveAdmminAction(JSON.stringify(this.model)))
+    }
+    else {
+      this.message = "Please ensure password and comfirmation is the same"
+    }
   }
   saveadmin() {
     this.router.navigateByUrl('/addemployees')
