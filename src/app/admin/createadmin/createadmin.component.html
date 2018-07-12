@@ -1,6 +1,8 @@
-<div class="container">
-  <div class="form-group mb-4">
-    <h4>Admin Registration Form</h4>
+<div class="center">
+  <div class="row">
+    <div class="form-group mb-4 heading">
+      <h4>Admin Registration Form</h4>
+    </div>
   </div>
   <div class="form">
     <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
@@ -70,7 +72,7 @@
       </div>
       <div class="row form-group">
         <div class="col-3">
-          <label for="passwordconfrim">Comfirm password</label>
+          <label for="passwordconfrim" class="confirmpassword">Comfirm password</label>
         </div>
         <div class="col">
           <input type="password" class="form-control" name="passwordconfirm" [(ngModel)]="model.passwordconfirm" #passwordconfirm="ngModel"

@@ -7,3 +7,9 @@ h4{
     font-weight: bold;
     
 }
+.center{
+    margin: auto;
+    padding: 10px;
+    display: block;
+    /* text-align: center; */
+}

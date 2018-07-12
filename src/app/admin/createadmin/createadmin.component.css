@@ -3,3 +3,10 @@
     font-weight:bolder;
     margin-left: 5px;
 }
+.heading{
+    padding-left: 10px;
+}
+.confirmpassword{
+    color: darkred;
+    font-weight: bold;
+}
