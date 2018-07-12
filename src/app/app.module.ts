@@ -12,7 +12,8 @@ import { AnswerSingleComponent } from './answer-single/answer-single.component'
 import { AnswerMultipleComponent } from './answer-multiple/answer-multiple.component'
 import { AnswerWriteComponent } from './answer-write/answer-write.component';
 import { ClientRegComponent } from './client-reg/client-reg.component';
-import { ClientsComponent } from './clients/clients.component'
+import { ClientsComponent } from './clients/clients.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component'
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ClientsComponent } from './clients/clients.component'
     AnswerMultipleComponent,
     AnswerWriteComponent,
     ClientRegComponent,
-    ClientsComponent
+    ClientsComponent,
+    PagenotfoundComponent
   ],
   imports: [
     BrowserModule,

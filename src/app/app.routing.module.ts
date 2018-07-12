@@ -5,7 +5,7 @@ import { AdminemployeesComponent } from './admin/adminemployees/adminemployees.c
 import {LoginComponent} from './login/login.component'
 export const routes: Routes = [
     {
-        path: '',
+        path: 'client/:client-code',
         //canActivate: [AuthGuard],
         component: CreateadminComponent
     },
