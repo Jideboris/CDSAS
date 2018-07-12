@@ -9,4 +9,5 @@ export interface Adminstrator {
     password: string
     email: string
     position: string
+    client:string
 }
