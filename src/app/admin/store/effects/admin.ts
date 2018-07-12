@@ -29,6 +29,23 @@ export class EmployeeEffects {
                 return of(err)
             })
         )
+        @Effect()
+        saveadmin$: Observable<Action> = this.actions$
+            .ofType<fromActions.SaveAdmminAction>(fromActions.SAVE_ADMIN)
+            .pipe(map(action => action.payload))
+            .pipe(switchMap((ad) => this.adminService.saveAdmin(ad)))
+            .pipe(
+                map(result => {
+                    if (!result) {
+                        return new fromActions.SaveAdminFailedAction('Could not fetch data!')
+                    } else {
+                        return new fromActions.SaveAdminDoneAction(result)
+                    }
+                }),
+                catchError((err, caught) => {
+                    return of(err)
+                })
+            )
 
 
 }
