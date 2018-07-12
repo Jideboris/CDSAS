@@ -6,12 +6,14 @@ export interface AppAdminState {
 
 export interface AdminState {
     employees: any
+    admin: string
     message: string
     loading: boolean
 };
 
 export const initialState: AdminState = {
     employees: {},
+    admin: '',
     message: '',
     loading: false
 }
@@ -19,8 +21,7 @@ export function reducer(state = initialState, action: fromActions.ALL_REDUCER_AC
     switch (action.type) {
         case fromActions.GET_EMPLOYEES: {
             return {
-                ...state,
-                employees: {}, message: '', loading: true
+                ...state, loading: true
             }
         }
         case fromActions.GET_EMPLOYEES_DONE: {
@@ -31,8 +32,23 @@ export function reducer(state = initialState, action: fromActions.ALL_REDUCER_AC
         }
         case fromActions.GET_EMPLOYEES_FAILED: {
             return {
+                ...state, message: action.payload, loading: false
+            }
+        }
+        case fromActions.ADD_ADMIN: {
+            return {
+                ...state, loading: true
+            }
+        }
+        case fromActions.ADD_ADMIN_DONE: {
+            return {
                 ...state,
-                employees: {}, message: action.payload, loading: false
+                admin: action.payload, message: '', loading: false
+            }
+        }
+        case fromActions.ADD_ADMIN_FAILED: {
+            return {
+                ...state, message: action.payload, loading: false
             }
         }
         default: {

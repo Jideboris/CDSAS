@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core'
-import { Effect, Actions } from '@ngrx/effects'
+import { Effect, Actions, ofType } from '@ngrx/effects'
 import { Action } from '@ngrx/store'
 import { Observable, of } from 'rxjs'
 import * as fromActions from '../actions/admin'
@@ -29,6 +29,36 @@ export class EmployeeEffects {
                 return of(err)
             })
         )
+    // @Effect()
+    // saveadmin$: Observable<Action> = this.actions$
+    //     .ofType<fromActions.SaveAdmminAction>(fromActions.ADD_ADMIN)
+    //     .pipe(map(action => action.payload))
+    //     .pipe(switchMap((ad) => this.adminService.saveAdmin(ad)))
+    //     .pipe(
+    //         map(result => {
+    //             if (!result) {
+    //                 return new fromActions.SaveAdminFailedAction('Could not fetch data!')
+    //             } else {
+    //                 return new fromActions.SaveAdminDoneAction(result)
+    //             }
+    //         }),
+    //         catchError((err, caught) => {
+    //             return of(err)
+    //         })
+    //     )
 
+    @Effect()
+    addadmin$: Observable<Action> = this.actions$.pipe(
+        ofType<fromActions.SaveAdmminAction>(fromActions.ADD_ADMIN),
+        switchMap(action => this.adminService.saveAdmin(action.payload)
+            .pipe(map(result => {
+                if (!result) {
+                    return new fromActions.SaveAdminFailedAction('Could not fetch data!')
+                } else {
+                    return new fromActions.SaveAdminDoneAction(result)
+                }
+            })
+            ))
+    )
 
 }

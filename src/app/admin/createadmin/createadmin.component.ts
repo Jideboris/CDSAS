@@ -1,23 +1,33 @@
-import { Component, OnInit } from '@angular/core'
-import { Router} from '@angular/router'
-import { AdminService } from '../admin.service'
+import { Component, OnInit, OnDestroy } from '@angular/core'
+import { Router, ActivatedRoute, ParamMap } from '@angular/router'
+import { Store } from '../../../../node_modules/@ngrx/store'
+import { AdminState } from '../store/reducers/admin'
+import * as fromActions from '../store/actions/admin'
 
 @Component({
   selector: 'app-createadmin',
   templateUrl: './createadmin.component.html',
   styleUrls: ['./createadmin.component.css']
 })
-export class CreateadminComponent implements OnInit {
+export class CreateadminComponent implements OnInit, OnDestroy {
+  ngOnDestroy() {
+    this.sub.unsubscribe()
+  }
   model: any = {}
-  constructor(private router: Router,private adminservice: AdminService) { }
+  code: string
+  private sub: any;
+  constructor(private router: Router, private route: ActivatedRoute, private store: Store<AdminState>) { }
 
-  ngOnInit() {}
-
+  ngOnInit() {
+    this.sub = this.route.params.subscribe(params => {
+      this.code = params['client-code']
+      this.model.client = this.code
+    })
+  }
   onSubmit() {
-    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.model))
+    this.store.dispatch(new fromActions.SaveAdmminAction(JSON.stringify(this.model)))
   }
   saveadmin() {
-    alert('hello')
     this.router.navigateByUrl('/addemployees')
   }
 }
