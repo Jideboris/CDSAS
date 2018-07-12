@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy, Input } from '@angular/core'
-import { Router, ActivatedRoute, ParamMap } from '@angular/router'
+import { Router, ActivatedRoute } from '@angular/router'
 import { Store } from '../../../../node_modules/@ngrx/store'
 import { AdminState } from '../store/reducers/admin'
 import * as fromActions from '../store/actions/admin'
