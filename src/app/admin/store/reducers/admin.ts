@@ -36,13 +36,11 @@ export function reducer(state = initialState, action: fromActions.ALL_REDUCER_AC
             }
         }
         case fromActions.ADD_ADMIN: {
-            console.log('ADD_ADMIN')
             return {
                 ...state, loading: true
             }
         }
         case fromActions.ADD_ADMIN_DONE: {
-            console.log('ADD_ADMIN_DONE')
             return {
                 ...state,
                 admin: action.payload, message: '', loading: false
