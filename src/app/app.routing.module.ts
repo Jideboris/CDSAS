@@ -30,7 +30,7 @@ export const routes: Routes = [
         component: AnswerSingleComponent
     },
     {
-        path: 'answermuitiple',
+        path: 'answermultiple',
         component: AnswerMultipleComponent
     },
     {
