@@ -1,8 +1,9 @@
 import { Component, OnInit, OnDestroy, Input } from '@angular/core'
 import { Router, ActivatedRoute } from '@angular/router'
-import { Store } from '../../../../node_modules/@ngrx/store'
+import { Store } from '@ngrx/store'
 import { AdminState } from '../store/reducers/admin'
 import * as fromActions from '../store/actions/admin'
+
 
 @Component({
   selector: 'app-createadmin',
@@ -24,7 +25,7 @@ export class CreateadminComponent implements OnInit, OnDestroy {
       this.code = params['client-code']
       this.model.client = this.code
       //check if the code is still valid and active
-      this.router.navigateByUrl('/login')
+      // this.router.navigateByUrl('/login')
     })
   }
   onSubmit() {

@@ -8,6 +8,7 @@ import { StoreModule } from '@ngrx/store'
 import { EffectsModule } from '@ngrx/effects'
 import { reducers, metaReducers } from './store/reducers'
 import { EmployeeEffects } from './store/effects/admin'
+import { LoginService } from '../login/login.service'
 
 @NgModule({
   imports: [
@@ -19,10 +20,10 @@ import { EmployeeEffects } from './store/effects/admin'
   declarations: [
     CreateadminComponent,
     AdminemployeesComponent,
- 
+
   ],
   providers: [
-    AdminService
+    AdminService, LoginService
   ]
 })
 
