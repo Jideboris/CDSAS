@@ -8,7 +8,9 @@ import {AnswerMultipleComponent} from './answer-multiple/answer-multiple.compone
 import {AnswerSingleComponent} from './answer-single/answer-single.component'
 import {AnswerWriteComponent} from './answer-write/answer-write.component'
 
+
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component'
+import { ClientRegComponent } from './client-reg/client-reg.component';
 export const routes: Routes = [
     {
         path: 'client/:client-code',
@@ -37,7 +39,10 @@ export const routes: Routes = [
         path: 'answerwrite',
         component: AnswerWriteComponent
     },
-
+    {
+        path: 'clientreg',
+        component: ClientRegComponent
+    },
     { path: '**', component: PagenotfoundComponent }
 
 ];

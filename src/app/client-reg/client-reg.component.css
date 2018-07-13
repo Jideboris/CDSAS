@@ -1,0 +1,30 @@
+h4{
+    font-family:'Times New Roman', Times, serif;
+    font-weight: bold;
+    
+}
+
+.checkbox {
+    display: block;
+    position: relative;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    float:left;
+    left: 10px;
+}
+
+.inp{
+    display:inline-block;
+    width:19px;
+    height:19px;
+    margin:-2px 10px 0 0;
+    vertical-align:middle;
+    cursor:pointer;
+}
+

@@ -1,3 +1,103 @@
-<p>
-  client-reg works!
-</p>
+<!--Client reg-->
+<h4>Client registration</h4>
+<div class = "center">
+  <div class="row form-group">
+    <div class="col-3">
+      <label for="email">Email</label>
+    </div>
+    <div class="col">
+      <input type="email" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && email.invalid }"
+        pattern="[^ @]*@[^ @]*" required/>
+      <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
+        <div *ngIf="email.errors.required">Email is required</div>
+        <div *ngIf="email.errors.pattern">Email must be a valid email address</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row form-group">
+    <div class="col-3">
+      <label for="firstname">First Name</label>
+    </div>
+    <div class="col">
+      <input type="text" class="form-control" name="firstname" [(ngModel)]="model.firstname" #firstname="ngModel" [ngClass]="{ 'is-invalid': f.submitted && firstname.invalid }"
+        required />
+      <div *ngIf="f.submitted && firstname.invalid" class="invalid-feedback">
+        <div *ngIf="firstname.errors.required">First Name is required</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row form-group">
+    <div class="col-3">
+      <label for="lastname">Last Name</label>
+    </div>
+    <div class="col">
+      <input type="text" class="form-control" name="lastname" [(ngModel)]="model.lastname" #lastname="ngModel" [ngClass]="{ 'is-invalid': f.submitted && lastname.invalid }"
+        required />
+      <div *ngIf="f.submitted && lastname.invalid" class="invalid-feedback">
+        <div *ngIf="lastname.errors.required">Last Name is required</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row form-group">
+    <div class="col-3">
+      <label for="position">Select position</label>
+    </div>
+    <div class="col">
+      <select class="form-control" id="position" name="position" [(ngModel)]="model.position" #position="ngModel" [ngClass]="{ 'is-invalid': f.submitted && position.invalid }"
+        required>
+        <option>Admin Manager</option>
+        <option>Project Manager</option>
+        <option>CEO</option>
+        <option>COO</option>
+        <option>Director</option>
+        <option>Team leader</option>
+        <option>Scrum manager</option>
+        <option>Other...</option>
+      </select>
+      <div *ngIf="f.submitted && position.invalid" class="invalid-feedback">
+        <div *ngIf="position.errors.required">Please clarify position.</div>
+      </div>
+    </div>
+  </div>
+  <div class="row form-group">
+    <div class="col-3">
+      <label for="role">Select role</label>
+    </div>
+    <div class="col">
+      <select class="form-control"  name="role" [(ngModel)]="model.role" #position="ngModel" [ngClass]="{ 'is-invalid': f.submitted && role.invalid }"
+        required>
+        <option>User</option>
+        <option>Admin</option>
+        <option>Super user</option>
+      </select>
+      <div *ngIf="f.submitted && role.invalid" class="invalid-feedback">
+        <div *ngIf="role.errors.required">Please clarify role.</div>
+      </div>
+    </div>
+  </div>
+  <div class="row checkbox">
+    <label class = "">Active</label>
+    <input class="inp" type="checkbox" name="option">
+  </div>
+  <div class="col">
+    <select class="form-control"  name="subtype" [(ngModel)]="model.subtype" #position="ngModel" [ngClass]="{ 'is-invalid': f.submitted && subtype.invalid }"
+      required>
+      <option>Once</option>
+      <option>Monthly</option>
+      <option>Quaterly</option>
+      <option>Yearly</option>
+    </select>
+    <div *ngIf="f.submitted && subtype.invalid" class="invalid-feedback">
+      <div *ngIf="subtype.errors.required">Please clarify role.</div>
+    </div>
+  </div>
+</div>
+  <br>
+  <div class="form-group" align="right">
+    <button class="btn btn-primary">Generate</button>
+  </div>
+</div>
+
