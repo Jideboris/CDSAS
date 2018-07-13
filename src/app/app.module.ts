@@ -13,7 +13,8 @@ import { AnswerMultipleComponent } from './answer-multiple/answer-multiple.compo
 import { AnswerWriteComponent } from './answer-write/answer-write.component';
 import { ClientRegComponent } from './client-reg/client-reg.component';
 import { ClientsComponent } from './clients/clients.component';
-import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component'
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { CyberIssuesComponent } from './cyber-issues/cyber-issues.component'
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component'
     AnswerWriteComponent,
     ClientRegComponent,
     ClientsComponent,
-    PagenotfoundComponent
+    PagenotfoundComponent,
+    CyberIssuesComponent
   ],
   imports: [
     BrowserModule,
