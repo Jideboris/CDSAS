@@ -17,7 +17,10 @@ var decrypted = CryptoJS.AES.decrypt(encrypted, key, {
     mode: CryptoJS.mode.CBC,
     padding: CryptoJS.pad.Pkcs7
 });
-
+// let outcome = secured.encrypt('omo')
+//       console.log(outcome)
+//       let outcome2 = secured.decrypt(outcome)
+//       console.log(outcome2)
 console.log('Encrypted :' + encrypted);
 console.log('Key :' + encrypted.key);
 console.log('Salt :' + encrypted.salt);
