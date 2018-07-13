@@ -3,7 +3,7 @@ import { Routes } from '@angular/router'
 import { CreateadminComponent } from './admin/createadmin/createadmin.component'
 import { AdminemployeesComponent } from './admin/adminemployees/adminemployees.component'
 
-import {LoginComponent} from './login/login.component'
+import {LoginComponent} from './login/log-in/login.component'
 import {AnswerMultipleComponent} from './answer-multiple/answer-multiple.component'
 import {AnswerSingleComponent} from './answer-single/answer-single.component'
 import {AnswerWriteComponent} from './answer-write/answer-write.component'

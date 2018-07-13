@@ -1,7 +1,7 @@
 
 import { ActionReducerMap, ActionReducer, MetaReducer } from '@ngrx/store'
 import { environment } from '../../../../environments/environment'
-import { reducer, AppAdminState } from '../reducers/admin'
+import { reducer, AppAdminState } from './admin'
 
 export const reducers: ActionReducerMap<AppAdminState> = {
     adminState: reducer
