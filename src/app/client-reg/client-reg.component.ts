@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./client-reg.component.css']
 })
 export class ClientRegComponent implements OnInit {
-
+  model: any = {}
   constructor() { }
 
   ngOnInit() {
