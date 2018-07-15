@@ -5,7 +5,7 @@
     </div>
   </div>
   <div class="form">
-    <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+    <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #form="ngForm" novalidate>
       <div class="row form-group">
         <div class="col-3">
           <label for="email">Email</label>
@@ -64,6 +64,7 @@
           </div>
         </div>
       </div>
+      
       <div class="row form-group">
         <div class="col-3">
           <label for="role">Select role</label>
@@ -80,12 +81,14 @@
           </div>
         </div>
       </div>
-      <div class="row checkbox">
-        <label class="">Active</label>
-        <input class="inp" type="checkbox" name="isactive" [(ngModel)]="model.isactive" #isactive="ngModel">
+      <div class="row form-group" id = "checkbox">
+        <label class="col-8">Active</label>
+        <input class="col" id="inp" type="checkbox" name="isactive" [(ngModel)]="model.isactive" #isactive="ngModel">
       </div>
+      
+      
       <div class="row form-group">
-        <div class="col-3">
+        <div class="col">
           <label for="role">Subscription</label>
         </div>
         <div class="col">
@@ -93,7 +96,7 @@
             required>
             <option>Once</option>
             <option>Monthly</option>
-            <option>Quaterly</option>
+            <option>Quarterly</option>
             <option>Yearly</option>
           </select>
           <div *ngIf="f.submitted && subtype.invalid" class="invalid-feedback">

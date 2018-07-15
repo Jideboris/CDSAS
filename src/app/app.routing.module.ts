@@ -7,6 +7,7 @@ import {LoginComponent} from './login/log-in/login.component'
 import {AnswerMultipleComponent} from './answer-multiple/answer-multiple.component'
 import {AnswerSingleComponent} from './answer-single/answer-single.component'
 import {AnswerWriteComponent} from './answer-write/answer-write.component'
+import {CyberIssuesComponent} from './cyber-issues/cyber-issues.component'
 
 
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component'
@@ -42,6 +43,10 @@ export const routes: Routes = [
     {
         path: 'clientreg',
         component: ClientRegComponent
+    },
+    {
+        path: 'cyberissues',
+        component: CyberIssuesComponent
     },
     { path: '**', component: PagenotfoundComponent }
 

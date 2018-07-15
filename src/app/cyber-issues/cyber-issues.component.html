@@ -1,3 +1,172 @@
-<p>
-  cyber-issues works!
-</p>
+
+<div class="center">
+  <div class="row">
+    <div class="form-group mb-4 heading">
+      <h4>Cyber issues</h4>
+    </div>
+  </div>
+  <div class="form">
+    <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+      <div class="row form-group">
+        <div class="col-3">
+        <label for="img">Image</label>
+      </div>
+      <div class="col">
+          <input type="file" name="pic" accept="image/*">
+      </div>
+  </div>
+      <div class="row form-group">
+        <div class="col-3">
+          <label for="topic">Topic</label>
+        </div>
+        <div class="col">
+          <input type="topic" class="form-control" name="topic" [(ngModel)]="model.topic" #topic="ngModel" [ngClass]="{ 'is-invalid': f.submitted && topic.invalid }"
+            pattern="[^ @]*@[^ @]*" required/>
+          <div *ngIf="f.submitted && topic.invalid" class="invalid-feedback">
+          <div *ngIf="topic.errors.required">Topic is required</div>
+          </div>     
+        </div>
+      </div>
+      
+    <div class="row form-group">
+      <div class="col-3">
+        <label for="describe">Description</label>
+      </div>
+      <div class="col">
+        <textarea class="form-control"  name="describe" [(ngModel)]="model.describe" #describe="ngModel" [ngClass]="{ 'is-invalid': f.submitted && describe.invalid }"
+        rows="5" required></textarea>
+        <div *ngIf="f.submitted && describe.invalid" class="invalid-feedback">
+        <div *ngIf="describe.errors.required"></div>
+        </div>
+      </div>
+    </div>
+    <div class="row form-group">
+      <div class="col-3">
+        <label for="Query">Question</label>
+      </div>
+      <div class="col">
+        <textarea class="form-control"  name="Query" [(ngModel)]="model.Query" #Query="ngModel" [ngClass]="{ 'is-invalid': f.submitted && Query.invalid }"
+        rows="5" required></textarea>
+        <div *ngIf="f.submitted && Query.invalid" class="invalid-feedback">
+        <div *ngIf="Query.errors.required"></div>
+        </div>
+      </div>
+    </div>
+    <div class="row form-group">
+      <div class="col-3">
+          <label for="anwtype">Select position</label>
+      </div>
+      <div class="col">
+        <select class="form-control" id="anwtype" name="anwtype" [(ngModel)]="model.anwtype" #anwtype="ngModel" [ngClass]="{ 'is-invalid': f.submitted && anwtype.invalid }"
+        required>
+        <option>Single</option>
+        <option>Multiple</option>
+        <option>Writen</option>
+        </select>
+        <div *ngIf="f.submitted && anwtype.invalid" class="invalid-feedback">
+        <div *ngIf="anwtype.errors.required">Please clarify the question type.</div>
+        </div>
+      </div>
+    </div>
+    <div class="row form-group">
+      <div class="col-3">  
+    </div>
+    <div class="col">
+      <div class="table-responsive">
+        <table class="table">
+        <thead class="thead-light">
+        <tr>
+          <th scope="col">Answer ID</th>
+          <th scope="col">Answers</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let emp of employees$ | async">
+          <td>
+            {{emp.answer}}
+          </td>
+          <td>
+            {{emp.firstname}}
+          </td>
+        </tr>
+        </tbody>
+        </table>
+      </div>
+    </div>
+    </div>
+    <div class="row form-group">
+      <div class="col-3">
+        <label for="Addone">Answer:</label>
+      </div>
+      <div class="col">
+        <textarea class="form-control" name="Addone" [(ngModel)]="model.Addone" #Addone="ngModel" [ngClass]="{ 'is-invalid': f.submitted && Addone.invalid }"
+        pattern="[^ @]*@[^ @]*" required></textarea>
+        <div *ngIf="f.submitted && Addone.invalid" class="invalid-feedback">
+        <div *ngIf="Addone.errors.required">Answer is required</div>
+        <div *ngIf="Addone.errors.pattern">!</div>
+      </div>
+      <div class="float-right mt-1">
+        <button for = "Addone" type="button" class="btn btn-secondary" (click)="saveemployee()">Add</button>
+      </div>
+      </div>
+    </div>
+
+
+    <div class="row form-group">
+        <div class="col-3">  
+      </div>
+      <div class="col">
+        <div class="table-responsive">
+          <table class="table">
+          <thead class="thead-light">
+          <tr>
+            <th scope="col">Correct option ID</th>
+            <th scope="col">Correct option</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let emp of employees$ | async">
+            <td>
+              {{emp.answer}}
+            </td>
+            <td>
+              {{emp.firstname}}
+            </td>
+          </tr>
+          </tbody>
+          </table>
+        </div>
+      </div>
+      </div>
+    <div class="row form-group">
+      <div class="col-3">
+        <label for="Addone">Correct option:</label>
+      </div>
+      <div class="col">
+        <textarea class="form-control" name="Addone" [(ngModel)]="model.Addone" #Addone="ngModel" [ngClass]="{ 'is-invalid': f.submitted && Addone.invalid }"
+        pattern="[^ @]*@[^ @]*" required></textarea>
+        <div *ngIf="f.submitted && Addone.invalid" class="invalid-feedback">
+          <div *ngIf="Addone.errors.required">Answer is required</div>
+          <div *ngIf="Addone.errors.pattern">!</div>
+        </div>
+        <div class="float-right mt-1">
+          <button for = "Addone" type="button" class="btn btn-secondary" (click)="saveemployee()">Add</button>
+        </div>
+      </div>
+    </div>
+    <div class="row float-right mr-2">
+      <div class="float-left ml-1">
+        <button type="button" class="btn btn-primary" (click)="addemployee()">Preview</button>
+      </div>
+      <div class="float-left ml-1">
+        <button type="button" class="btn btn-secondary" (click)="saveemployee()">Submit</button>
+      </div>
+      <div class="float-left ml-1">
+        <button type="button" class="btn btn-primary" (click)="addemployee()">View</button>
+      </div>
+    </div>
+    </form>
+  </div>
+</div>
+
+    

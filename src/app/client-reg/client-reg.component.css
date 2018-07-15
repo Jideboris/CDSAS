@@ -4,7 +4,7 @@ h4{
     
 }
 
-.checkbox {
+#checkbox {
     display: block;
     position: relative;
     padding-left: 10px;
@@ -16,10 +16,10 @@ h4{
     -ms-user-select: none;
     user-select: none;
     float:left;
-    left: 10px;
+    left: -10px;
 }
 
-.inp{
+#inp{
     display:inline-block;
     width:19px;
     height:19px;

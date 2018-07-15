@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cyber-issues.component.css']
 })
 export class CyberIssuesComponent implements OnInit {
-
+  model: any = {}
   constructor() { }
 
   ngOnInit() {
