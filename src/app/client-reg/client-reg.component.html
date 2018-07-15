@@ -1,11 +1,11 @@
 <div class="center">
   <div class="row">
     <div class="form-group mb-4 heading">
-      <h4>Client registration</h4>
+      <h4>Registration</h4>
     </div>
   </div>
   <div class="form">
-    <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #form="ngForm" novalidate>
+    <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
       <div class="row form-group">
         <div class="col-3">
           <label for="email">Email</label>
@@ -64,7 +64,7 @@
           </div>
         </div>
       </div>
-      
+
       <div class="row form-group">
         <div class="col-3">
           <label for="role">Select role</label>
@@ -81,14 +81,16 @@
           </div>
         </div>
       </div>
-      <div class="row form-group" id = "checkbox">
-        <label class="col-8">Active</label>
-        <input class="col" id="inp" type="checkbox" name="isactive" [(ngModel)]="model.isactive" #isactive="ngModel">
-      </div>
-      
-      
       <div class="row form-group">
+        <div class="col-3">
+          <label for="inp">Active</label>
+        </div>
         <div class="col">
+          <input class="form-control" id="inp" type="checkbox" name="isactive" [(ngModel)]="model.isactive" #isactive="ngModel">
+        </div>
+      </div>
+      <div class="row form-group">
+        <div class="col-3">
           <label for="role">Subscription</label>
         </div>
         <div class="col">
