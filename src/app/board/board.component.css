@@ -1,0 +1,16 @@
+.imagebox {
+    width: 425px;
+    height: 425px;
+    padding: 10px;
+    border: 3px solid gray;
+    margin: 10px; 
+}
+
+.imageboxt{
+    width: 870px;
+    height: 200px;
+    padding: 10px;
+    border: 3px solid gray;
+    margin: 10px; 
+}
+

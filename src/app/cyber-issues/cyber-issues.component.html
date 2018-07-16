@@ -20,7 +20,7 @@
           <label for="topic">Topic</label>
         </div>
         <div class="col">
-          <input type="topic" class="form-control" name="topic" [(ngModel)]="model.topic" #topic="ngModel" [ngClass]="{ 'is-invalid': f.submitted && topic.invalid }"
+          <input type="text" class="form-control" name="topic" [(ngModel)]="model.topic" #topic="ngModel" [ngClass]="{ 'is-invalid': f.submitted && topic.invalid }"
             pattern="[^ @]*@[^ @]*" required/>
           <div *ngIf="f.submitted && topic.invalid" class="invalid-feedback">
           <div *ngIf="topic.errors.required">Topic is required</div>
