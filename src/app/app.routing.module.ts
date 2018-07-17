@@ -9,6 +9,8 @@ import {AnswerSingleComponent} from './answer-single/answer-single.component'
 import {AnswerWriteComponent} from './answer-write/answer-write.component'
 import {CyberIssuesComponent} from './cyber-issues/cyber-issues.component'
 import {BoardComponent} from './board/board.component'
+import {ClientsComponent} from './clients/clients.component'
+
 
 
 
@@ -53,6 +55,10 @@ export const routes: Routes = [
     {
         path: 'board',
         component: BoardComponent
+    },
+    {
+        path: 'clients',
+        component: ClientsComponent
     },
     { path: '**', component: PagenotfoundComponent }
 
