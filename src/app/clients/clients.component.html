@@ -1,3 +1,33 @@
-<p>
-  clients works!
-</p>
+<div class="form-group">
+  <div class="table-responsive">
+    <table class="table">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Company</th>
+          <th scope="col">Position</th>
+          <th scope="col">Link</th>
+          <th scope="col">Delete</th>
+          <th scope="col">Edit</th>
+          <th scope="col">Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let emp of employees$ | async">
+          <td>
+            {{emp.empid}}
+          </td>
+          <td>
+            {{emp.firstname}}
+          </td>
+          <td>
+            {{emp.lastname}}
+          </td>
+          <td>
+            {{emp.email}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
