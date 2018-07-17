@@ -8,6 +8,8 @@ import {AnswerMultipleComponent} from './answer-multiple/answer-multiple.compone
 import {AnswerSingleComponent} from './answer-single/answer-single.component'
 import {AnswerWriteComponent} from './answer-write/answer-write.component'
 import {CyberIssuesComponent} from './cyber-issues/cyber-issues.component'
+import {BoardComponent} from './board/board.component'
+
 
 
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component'
@@ -47,6 +49,10 @@ export const routes: Routes = [
     {
         path: 'cyberissues',
         component: CyberIssuesComponent
+    },
+    {
+        path: 'board',
+        component: BoardComponent
     },
     { path: '**', component: PagenotfoundComponent }
 
