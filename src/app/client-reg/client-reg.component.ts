@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core'
+import { Store } from '@ngrx/store'
+import { AdminState } from '../admin/store/reducers/admin'
+import * as fromActions from '../admin/store/actions/admin'
+import { getSubscriptions } from '../admin/store/selectors/admin';
+import { Dropdown } from '../admin/model/Adminstrator';
+import { Observable } from 'rxjs'
 
 @Component({
   selector: 'app-client-reg',
@@ -7,7 +13,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientRegComponent implements OnInit {
   model: any = {}
-  constructor() { }
+  subscriptions$: Observable<Dropdown[]>
+  constructor(private store: Store<AdminState>) { 
+    this.store.dispatch(new fromActions.GetSubscriptionAction())
+
+    this.subscriptions$ = this.store.select(getSubscriptions)
+
+    console.log(this.subscriptions$)
+  }
 
   ngOnInit() {
   }

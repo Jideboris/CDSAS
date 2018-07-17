@@ -29,23 +29,20 @@ export class EmployeeEffects {
                 return of(err)
             })
         )
-    // @Effect()
-    // saveadmin$: Observable<Action> = this.actions$
-    //     .ofType<fromActions.SaveAdmminAction>(fromActions.ADD_ADMIN)
-    //     .pipe(map(action => action.payload))
-    //     .pipe(switchMap((ad) => this.adminService.saveAdmin(ad)))
-    //     .pipe(
-    //         map(result => {
-    //             if (!result) {
-    //                 return new fromActions.SaveAdminFailedAction('Could not fetch data!')
-    //             } else {
-    //                 return new fromActions.SaveAdminDoneAction(result)
-    //             }
-    //         }),
-    //         catchError((err, caught) => {
-    //             return of(err)
-    //         })
-    //     )
+        @Effect()
+        getsubcriptions$: Observable<Action> = this.actions$.pipe(
+            ofType<fromActions.GetSubscriptionAction>(fromActions.GET_SUBSCRIPTION),
+            switchMap(() => this.adminService.getsubcriptions()
+                .pipe(map(result => {
+                    console.log(result)
+                    if (!result) {
+                        return new fromActions.GetSubscriptionFailedAction('Could not fetch data!')
+                    } else {
+                        return new fromActions.GetSubscriptionDoneAction(result)
+                    }
+                })
+                ))
+        )
 
     @Effect()
     addadmin$: Observable<Action> = this.actions$.pipe(

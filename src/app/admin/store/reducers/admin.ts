@@ -5,6 +5,7 @@ export interface AppAdminState {
 };
 
 export interface AdminState {
+    subscriptions: any
     employees: any
     admin: string
     message: string
@@ -12,6 +13,7 @@ export interface AdminState {
 };
 
 export const initialState: AdminState = {
+    subscriptions: {},
     employees: {},
     admin: '',
     message: '',
@@ -19,6 +21,22 @@ export const initialState: AdminState = {
 }
 export function reducer(state = initialState, action: fromActions.ALL_REDUCER_ACTIONS): AdminState {
     switch (action.type) {
+        case fromActions.GET_SUBSCRIPTION: {
+            return {
+                ...state, loading: true
+            }
+        }
+        case fromActions.GET_SUBSCRIPTION_DONE: {
+            return {
+                ...state,
+                subscriptions: action.payload, message: '', loading: false
+            }
+        }
+        case fromActions.GET_SUBSCRIPTION_FAILED: {
+            return {
+                ...state, message: action.payload, loading: false
+            }
+        }
         case fromActions.GET_EMPLOYEES: {
             return {
                 ...state, loading: true

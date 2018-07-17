@@ -1,5 +1,6 @@
 import { Action } from '@ngrx/store'
 import { Employee } from '../../model/Employee'
+import { Dropdown } from '../../model/Adminstrator'
 
 export const GET_EMPLOYEES = "GET_EMPLOYEES"
 export const GET_EMPLOYEES_DONE = "GET_EMPLOYEES_DONE"
@@ -8,6 +9,23 @@ export const GET_EMPLOYEES_FAILED = 'GET_EMPLOYEES_FAILED'
 export const ADD_ADMIN = "ADD_ADMIN"
 export const ADD_ADMIN_DONE = "ADD_ADMIN_DONE"
 export const ADD_ADMIN_FAILED = 'ADD_ADMIN_FAILED'
+
+export const GET_SUBSCRIPTION = "GET_SUBSCRIPTION"
+export const GET_SUBSCRIPTION_DONE = "GET_SUBSCRIPTION_DONE"
+export const GET_SUBSCRIPTION_FAILED = 'GET_SUBSCRIPTION_FAILED'
+
+export class GetSubscriptionAction implements Action {
+  readonly type = GET_SUBSCRIPTION
+  constructor() { }
+}
+export class GetSubscriptionDoneAction implements Action {
+  readonly type = GET_SUBSCRIPTION_DONE
+  constructor(public payload: Dropdown[]) { }
+}
+export class GetSubscriptionFailedAction implements Action {
+  readonly type = GET_SUBSCRIPTION_FAILED
+  constructor(public payload: any) { }
+}
 
 export class GetEmployeesAction implements Action {
   readonly type = GET_EMPLOYEES
@@ -41,3 +59,6 @@ export type ALL_REDUCER_ACTIONS
   | SaveAdmminAction
   | SaveAdminDoneAction
   | SaveAdminFailedAction
+  | GetSubscriptionAction
+  | GetSubscriptionDoneAction
+  | GetSubscriptionFailedAction

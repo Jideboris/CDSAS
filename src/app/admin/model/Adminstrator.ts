@@ -9,5 +9,10 @@ export interface Adminstrator {
     password: string
     email: string
     position: string
-    client:string
+    client: string
+}
+export interface Dropdown {
+    id: string
+    description: string
+
 }

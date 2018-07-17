@@ -3,7 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router'
 import { Store } from '@ngrx/store'
 import { AdminState } from '../store/reducers/admin'
 import * as fromActions from '../store/actions/admin'
-import * as secured from '../../common'
+
 @Component({
   selector: 'app-createadmin',
   templateUrl: './createadmin.component.html',

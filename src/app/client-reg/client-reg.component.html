@@ -2,6 +2,27 @@
   <div class="row">
     <div class="form-group mb-4 heading">
       <h4>Registration</h4>
+      <table class="table">
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">Employee ID</th>
+              <th scope="col">Description</th>
+              
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let emp of subscriptions$ | async">
+              <td>
+                {{emp._id}}
+              </td>
+              <td>
+                {{emp.description}}
+              </td>
+              
+            </tr>
+          </tbody>
+        </table>
+      
     </div>
   </div>
   <div class="form">
