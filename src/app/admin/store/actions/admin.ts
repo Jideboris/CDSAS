@@ -20,7 +20,7 @@ export class GetSubscriptionAction implements Action {
 }
 export class GetSubscriptionDoneAction implements Action {
   readonly type = GET_SUBSCRIPTION_DONE
-  constructor(public payload: Dropdown[]) { }
+  constructor(public subcriptions: any,public roles: any,public positions: any) { }
 }
 export class GetSubscriptionFailedAction implements Action {
   readonly type = GET_SUBSCRIPTION_FAILED

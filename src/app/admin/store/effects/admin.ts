@@ -38,7 +38,7 @@ export class EmployeeEffects {
                 if (!result) {
                     return new fromActions.GetSubscriptionFailedAction('Could not fetch data!')
                 } else {
-                    return new fromActions.GetSubscriptionDoneAction(result)
+                    return new fromActions.GetSubscriptionDoneAction(result[0],result[1],result[2])
                 }
             }),
             catchError((err, caught) => {

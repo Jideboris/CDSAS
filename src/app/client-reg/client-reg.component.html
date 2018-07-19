@@ -50,14 +50,7 @@
         <div class="col">
           <select class="form-control" id="position" name="position" [(ngModel)]="model.position" #position="ngModel" [ngClass]="{ 'is-invalid': f.submitted && position.invalid }"
             required>
-            <option>Admin Manager</option>
-            <option>Project Manager</option>
-            <option>CEO</option>
-            <option>COO</option>
-            <option>Director</option>
-            <option>Team leader</option>
-            <option>Scrum manager</option>
-            <option>Other...</option>
+            <option *ngFor="let position of positions$ | async" [value]="position.description">{{position.description}}</option>
           </select>
           <div *ngIf="f.submitted && position.invalid" class="invalid-feedback">
             <div *ngIf="position.errors.required">Please clarify position.</div>
@@ -72,9 +65,7 @@
         <div class="col">
           <select class="form-control" name="role" [(ngModel)]="model.role" #role="ngModel" [ngClass]="{ 'is-invalid': f.submitted && role.invalid }"
             required>
-            <option>User</option>
-            <option>Admin</option>
-            <option>Super user</option>
+            <option *ngFor="let role of roles$ | async" [value]="role.description">{{role.description}}</option>
           </select>
           <div *ngIf="f.submitted && role.invalid" class="invalid-feedback">
             <div *ngIf="role.errors.required">Please clarify role.</div>
@@ -94,7 +85,7 @@
           <label for="role">Subscription</label>
         </div>
         <div class="col">
-          <select class="form-control" name="subtype"  [(ngModel)]="model.subtype" #subtype="ngModel" [ngClass]="{ 'is-invalid': f.submitted && subtype.invalid }"
+          <select class="form-control" name="subtype" [(ngModel)]="model.subtype" #subtype="ngModel" [ngClass]="{ 'is-invalid': f.submitted && subtype.invalid }"
             required>
             <option *ngFor="let subscription of subscriptions$ | async" [value]="subscription.description">{{subscription.description}}</option>
           </select>
