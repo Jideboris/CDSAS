@@ -12,7 +12,7 @@ export interface Adminstrator {
     client: string
 }
 export interface Dropdown {
-    id: string
+    _id: string
     description: string
 
 }

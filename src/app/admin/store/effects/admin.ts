@@ -29,19 +29,21 @@ export class EmployeeEffects {
                 return of(err)
             })
         )
-        @Effect()
-        getsubcriptions$: Observable<Action> = this.actions$.pipe(
-            ofType<fromActions.GetSubscriptionAction>(fromActions.GET_SUBSCRIPTION),
-            switchMap(() => this.adminService.getsubcriptions()
-                .pipe(map(result => {
-                    console.log(result)
-                    if (!result) {
-                        return new fromActions.GetSubscriptionFailedAction('Could not fetch data!')
-                    } else {
-                        return new fromActions.GetSubscriptionDoneAction(result)
-                    }
-                })
-                ))
+    @Effect()
+    getsubcriptions$: Observable<Action> = this.actions$
+        .ofType<fromActions.GetSubscriptionAction>(fromActions.GET_SUBSCRIPTION)
+        .pipe(switchMap(() => this.adminService.getsubcriptions()))
+        .pipe(
+            map(result => {
+                if (!result) {
+                    return new fromActions.GetSubscriptionFailedAction('Could not fetch data!')
+                } else {
+                    return new fromActions.GetSubscriptionDoneAction(result)
+                }
+            }),
+            catchError((err, caught) => {
+                return of(err)
+            })
         )
 
     @Effect()
@@ -55,7 +57,7 @@ export class EmployeeEffects {
                     return new fromActions.SaveAdminDoneAction(result)
                 }
             })
-            ))
+        ))
     )
 
 }

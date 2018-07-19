@@ -2,27 +2,6 @@
   <div class="row">
     <div class="form-group mb-4 heading">
       <h4>Registration</h4>
-      <table class="table">
-          <thead class="thead-light">
-            <tr>
-              <th scope="col">Employee ID</th>
-              <th scope="col">Description</th>
-              
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let emp of subscriptions$ | async">
-              <td>
-                {{emp._id}}
-              </td>
-              <td>
-                {{emp.description}}
-              </td>
-              
-            </tr>
-          </tbody>
-        </table>
-      
     </div>
   </div>
   <div class="form">
@@ -102,14 +81,6 @@
           </div>
         </div>
       </div>
-<<<<<<< HEAD
-      <div class="row form-group" id = "checkbox">
-        <label class="col-8">Active</label>
-        <input class="col" id="inp" type="checkbox" name="isactive" [(ngModel)]="model.isactive" #isactive="ngModel">
-      </div>
-      
-=======
->>>>>>> 37fea8b15ad256382b4aa3ff2be93f89117d6dd6
       <div class="row form-group">
         <div class="col-3">
           <label for="inp">Active</label>
@@ -123,12 +94,9 @@
           <label for="role">Subscription</label>
         </div>
         <div class="col">
-          <select class="form-control" name="subtype" [(ngModel)]="model.subtype" #subtype="ngModel" [ngClass]="{ 'is-invalid': f.submitted && subtype.invalid }"
+          <select class="form-control" name="subtype"  [(ngModel)]="model.subtype" #subtype="ngModel" [ngClass]="{ 'is-invalid': f.submitted && subtype.invalid }"
             required>
-            <option>Once</option>
-            <option>Monthly</option>
-            <option>Quarterly</option>
-            <option>Yearly</option>
+            <option *ngFor="let subscription of subscriptions$ | async" [value]="subscription.description">{{subscription.description}}</option>
           </select>
           <div *ngIf="f.submitted && subtype.invalid" class="invalid-feedback">
             <div *ngIf="subtype.errors.required">Please clarify role.</div>
@@ -140,7 +108,7 @@
           <button class="btn btn-primary">Generate</button>
         </div>
       </div>
-      
+
     </form>
   </div>
 </div>

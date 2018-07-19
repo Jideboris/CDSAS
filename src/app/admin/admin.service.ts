@@ -4,7 +4,7 @@ import { Employee } from './model/Employee'
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { map } from 'rxjs/operators'
 import { SAVE_ADMIN_URL, GET_SUBSCRIPTION_URL } from '../constants'
-import { Dropdown } from './model/Adminstrator';
+import { Dropdown } from './model/Adminstrator'
 
 
 @Injectable({
@@ -24,7 +24,7 @@ export class AdminService {
 
   public getsubcriptions(): Observable<Dropdown[]> {
     let output = this.http.get<Dropdown[]>(GET_SUBSCRIPTION_URL)
-    return output
+    return output || of()
   }
 
   public saveAdmin(admin: string): Observable<any> {
