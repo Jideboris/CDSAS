@@ -26,5 +26,5 @@ export class ClientRegComponent implements OnInit {
     this.roles$ = this.store.select(getRoles)
     this.positions$ = this.store.select(getPositions)
   }
-
+  onSubmit(){}
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs/internal/Observable';
 
 @Component({
   selector: 'app-cyber-issues',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CyberIssuesComponent implements OnInit {
   model: any = {}
+  employees$: Observable<any[]>
   constructor() { }
 
   ngOnInit() {
   }
+  onSubmit() { }
+  saveemployee() {
 
+  }
+  addemployee() {
+
+  }
 }

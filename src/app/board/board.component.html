@@ -3,9 +3,9 @@
     <label for="topic">Topic:</label>
   </div>
   <div class="col-11">
-    <input type="text" class="form-control" name="topic" [(ngModel)]="model.topic" #topic="ngModel" [ngClass]="{ 'is-invalid': f.submitted && topic.invalid }"
+    <input type="text" class="form-control" name="topic" [(ngModel)]="model.topic" #topic="ngModel" [ngClass]="{ 'is-invalid': topic.invalid }"
       pattern="[^ @]*@[^ @]*" required/>
-    <div *ngIf="f.submitted && topic.invalid" class="invalid-feedback">
+    <div *ngIf="topic.invalid" class="invalid-feedback">
     <div *ngIf="topic.errors.required">Topic is required</div>
     </div>     
   </div>
@@ -37,9 +37,9 @@
 
 <div class="row">
   <div class="float-left ml-1">
-    <button type="button" class="btn btn-primary" (click)="addemployee()">Prev</button>
+    <button type="button" class="btn btn-primary">Prev</button>
   </div>
   <div class="float-right ml-1">
-    <button type="button" class="btn btn-secondary" (click)="saveemployee()">Next</button>
+    <button type="button" class="btn btn-secondary">Next</button>
   </div>
 </div>
