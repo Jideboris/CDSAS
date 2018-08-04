@@ -2,6 +2,7 @@ import { createFeatureSelector, createSelector } from '@ngrx/store'
 import { AdminState } from '../reducers/admin'
 
 export const getAdminState = createFeatureSelector<AdminState>('adminState')
+
 export const getSubscriptions = createSelector(
     getAdminState,
     (state: AdminState) => state.subscriptions
