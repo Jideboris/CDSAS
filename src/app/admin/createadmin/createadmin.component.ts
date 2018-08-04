@@ -3,6 +3,9 @@ import { Router, ActivatedRoute } from '@angular/router'
 import { Store } from '@ngrx/store'
 import { AdminState } from '../store/reducers/admin'
 import * as fromActions from '../store/actions/admin'
+import { Observable } from 'rxjs/internal/Observable';
+import { Dropdown } from '../model/Adminstrator';
+import { getRoles, getPositions } from '../store/selectors/admin';
 
 @Component({
   selector: 'app-createadmin',
@@ -17,9 +20,11 @@ export class CreateadminComponent implements OnInit, OnDestroy {
   model: any = {}
   code: string
   private sub: any;
+  positions$: Observable<Dropdown[]>
   constructor(private router: Router, private route: ActivatedRoute, private store: Store<AdminState>) { }
 
   ngOnInit() {
+    this.positions$ = this.store.select(getPositions)
     this.sub = this.route.params.subscribe(params => {
       this.code = params['client-code']
       this.model.client = this.code
@@ -30,8 +35,8 @@ export class CreateadminComponent implements OnInit, OnDestroy {
   onSubmit() {
     let mod = this.model
     if (mod.password === mod.passwordconfirm && this.code !== '') {
-    //  let encryptedpass = secured.encrypt(mod.password)
-     // this.model.password = encryptedpass
+      //  let encryptedpass = secured.encrypt(mod.password)
+      // this.model.password = encryptedpass
       this.store.dispatch(new fromActions.SaveAdmminAction(JSON.stringify(this.model)))
     }
     else {

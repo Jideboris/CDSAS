@@ -9,5 +9,8 @@ import * as fromActions from './admin/store/actions/admin'
 })
 export class AppComponent {
   title = 'app'
+  constructor(private store: Store<AdminState>){
+    this.store.dispatch(new fromActions.GetSubscriptionAction())
+  }
   
 }

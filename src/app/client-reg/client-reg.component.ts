@@ -18,7 +18,7 @@ export class ClientRegComponent implements OnInit {
   positions$: Observable<Dropdown[]>
   
   constructor(private store: Store<AdminState>) {
-    this.store.dispatch(new fromActions.GetSubscriptionAction())
+    
   }
 
   ngOnInit() {
