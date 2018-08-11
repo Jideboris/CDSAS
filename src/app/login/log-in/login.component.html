@@ -8,7 +8,7 @@
     <div class="form">
       <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
         <div class="row form-group">
-          <div class="col-2 label">
+          <div class="col-3 mr-2 label">
             <label for="username">Username:</label>
           </div>
           <div class="col-8">
@@ -20,8 +20,8 @@
           </div>
         </div>
         <div class="row form-group">
-          <div class="col-2 label">
-            <label for="password">Password</label>
+          <div class="col-3 mr-2 label">
+            <label for="password">Password:</label>
           </div>
           <div class="col-8">
             <input type="password" class="form-control" name="password" [(ngModel)]="model.password" #password="ngModel" [ngClass]="{ 'is-invalid': f.submitted && password.invalid }"

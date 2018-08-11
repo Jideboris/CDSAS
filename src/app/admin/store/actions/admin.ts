@@ -10,6 +10,10 @@ export const ADD_ADMIN = "ADD_ADMIN"
 export const ADD_ADMIN_DONE = "ADD_ADMIN_DONE"
 export const ADD_ADMIN_FAILED = 'ADD_ADMIN_FAILED'
 
+export const ADD_CLIENT_REGISTRATION = "ADD_CLIENT_REGISTRATION"
+export const ADD_CLIENT_REGISTRATION_DONE = "ADD_CLIENT_REGISTRATION_DONE"
+export const ADD_CLIENT_REGISTRATION_FAILED = 'ADD_CLIENT_REGISTRATION_FAILED'
+
 export const GET_SUBSCRIPTION = "GET_SUBSCRIPTION"
 export const GET_SUBSCRIPTION_DONE = "GET_SUBSCRIPTION_DONE"
 export const GET_SUBSCRIPTION_FAILED = 'GET_SUBSCRIPTION_FAILED'
@@ -52,6 +56,19 @@ export class SaveAdminFailedAction implements Action {
   readonly type = ADD_ADMIN_FAILED
   constructor(public payload: any) { }
 }
+
+export class SaveClientRegistration implements Action {
+  readonly type = ADD_CLIENT_REGISTRATION
+  constructor(public payload: any) { }
+}
+export class SaveClientRegistrationDone implements Action {
+  readonly type = ADD_CLIENT_REGISTRATION_DONE
+  constructor(public payload: any) { }
+}
+export class SaveClientRegistrationFailed implements Action {
+  readonly type = ADD_CLIENT_REGISTRATION_FAILED
+  constructor(public payload: any) { }
+}
 export type ALL_REDUCER_ACTIONS
   = GetEmployeesAction
   | GetEmployeesDoneAction
@@ -59,6 +76,9 @@ export type ALL_REDUCER_ACTIONS
   | SaveAdmminAction
   | SaveAdminDoneAction
   | SaveAdminFailedAction
+  | SaveClientRegistration
+  | SaveClientRegistrationDone
+  | SaveClientRegistrationFailed
   | GetSubscriptionAction
   | GetSubscriptionDoneAction
   | GetSubscriptionFailedAction

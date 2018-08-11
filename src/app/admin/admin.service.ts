@@ -3,7 +3,7 @@ import { of, Observable } from 'rxjs'
 import { Employee } from './model/Employee'
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { map } from 'rxjs/operators'
-import { SAVE_ADMIN_URL, GET_SUBSCRIPTION_URL } from '../constants'
+import { SAVE_ADMIN_URL, GET_SUBSCRIPTION_URL, SAVE_CLIENT_REGISTRATION_URL } from '../constants'
 import { Dropdown } from './model/Adminstrator'
 
 
@@ -31,6 +31,14 @@ export class AdminService {
     let output = {}
     let options = new HttpHeaders().set('Content-Type', 'application/json')
     this.http.post(SAVE_ADMIN_URL, admin, { headers: options })
+      .subscribe(result => { output = result })
+    return of(output)
+  }
+
+  public saveClientRegistration(clientreg: string): Observable<any> {
+    let output = {}
+    let options = new HttpHeaders().set('Content-Type', 'application/json')
+    this.http.post(SAVE_CLIENT_REGISTRATION_URL, clientreg, { headers: options })
       .subscribe(result => { output = result })
     return of(output)
   }

@@ -74,6 +74,23 @@ export function reducer(state = initialState, action: fromActions.ALL_REDUCER_AC
                 ...state, message: action.payload, loading: false
             }
         }
+        case fromActions.ADD_CLIENT_REGISTRATION: {
+            return {
+                ...state, loading: true
+            }
+        }
+        case fromActions.ADD_CLIENT_REGISTRATION_DONE: {
+            console.log('here')
+            return {
+                ...state,
+                admin: action.payload, message: '', loading: false
+            }
+        }
+        case fromActions.ADD_CLIENT_REGISTRATION_FAILED: {
+            return {
+                ...state, message: action.payload, loading: false
+            }
+        }
         default: {
             return state
         }

@@ -26,14 +26,15 @@ export class CreateadminComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.positions$ = this.store.select(getPositions)
     this.sub = this.route.params.subscribe(params => {
-      this.code = params['client-code']
+      this.code = params['regcode']
+      console.log(this.code)
       this.model.client = this.code
       //check if the code is still valid and active
       //this.router.navigateByUrl('/login')
     })
   }
   onSubmit() {
-    let mod = this.model
+    const mod = this.model
     if (mod.password === mod.passwordconfirm && this.code !== '') {
       //  let encryptedpass = secured.encrypt(mod.password)
       // this.model.password = encryptedpass

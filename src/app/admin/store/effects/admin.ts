@@ -60,4 +60,18 @@ export class EmployeeEffects {
         ))
     )
 
+    @Effect()
+    addclientregistration$: Observable<Action> = this.actions$.pipe(
+        ofType<fromActions.SaveClientRegistration>(fromActions.ADD_CLIENT_REGISTRATION),
+        switchMap(action => this.adminService.saveClientRegistration(action.payload)
+            .pipe(map(result => {
+                if (!result) {
+                    return new fromActions.SaveAdminFailedAction('Could not fetch data!')
+                } else {
+                    return new fromActions.SaveClientRegistrationDone(result)
+                }
+            })
+        ))
+    )
+
 }

@@ -18,8 +18,7 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component'
 import { ClientRegComponent } from './client-reg/client-reg.component';
 export const routes: Routes = [
     {
-        path: 'client/:client-code',
-        canActivate: [AuthGuard],
+        path: 'client/:regcode',
         component: CreateadminComponent
     },
     {
