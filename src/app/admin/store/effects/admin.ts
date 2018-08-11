@@ -38,14 +38,29 @@ export class EmployeeEffects {
                 if (!result) {
                     return new fromActions.GetSubscriptionFailedAction('Could not fetch data!')
                 } else {
-                    return new fromActions.GetSubscriptionDoneAction(result[0],result[1],result[2])
+                    return new fromActions.GetSubscriptionDoneAction(result[0], result[1], result[2])
                 }
             }),
             catchError((err, caught) => {
                 return of(err)
             })
         )
-
+    @Effect()
+    getclientregistration$: Observable<Action> = this.actions$
+        .ofType<fromActions.GetClientRegAction>(fromActions.GET_CLIENTREG)
+        .pipe(switchMap((payload) => this.adminService.getclientregistration(payload.regcode)))
+        .pipe(
+            map(result => {
+                if (!result) {
+                    return new fromActions.GetClientRegFailedAction('Could not fetch data!')
+                } else {
+                    return new fromActions.GetClientRegDoneAction(result)
+                }
+            }),
+            catchError((err, caught) => {
+                return of(err)
+            })
+        )
     @Effect()
     addadmin$: Observable<Action> = this.actions$.pipe(
         ofType<fromActions.SaveAdmminAction>(fromActions.ADD_ADMIN),
@@ -57,7 +72,7 @@ export class EmployeeEffects {
                     return new fromActions.SaveAdminDoneAction(result)
                 }
             })
-        ))
+            ))
     )
 
     @Effect()
@@ -71,7 +86,7 @@ export class EmployeeEffects {
                     return new fromActions.SaveClientRegistrationDone(result)
                 }
             })
-        ))
+            ))
     )
 
 }

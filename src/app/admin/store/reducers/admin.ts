@@ -13,6 +13,7 @@ export interface AdminState {
     admin: string
     message: string
     loading: boolean
+    clientreg: string
 };
 
 export const initialState: AdminState = {
@@ -22,7 +23,8 @@ export const initialState: AdminState = {
     employees: {},
     admin: '',
     message: '',
-    loading: false
+    loading: false,
+    clientreg: ''
 }
 export function reducer(state = initialState, action: fromActions.ALL_REDUCER_ACTIONS): AdminState {
     switch (action.type) {
@@ -80,13 +82,28 @@ export function reducer(state = initialState, action: fromActions.ALL_REDUCER_AC
             }
         }
         case fromActions.ADD_CLIENT_REGISTRATION_DONE: {
-            console.log('here')
             return {
                 ...state,
                 admin: action.payload, message: '', loading: false
             }
         }
         case fromActions.ADD_CLIENT_REGISTRATION_FAILED: {
+            return {
+                ...state, message: action.payload, loading: false
+            }
+        }
+        case fromActions.GET_CLIENTREG: {
+            return {
+                ...state, loading: true
+            }
+        }
+        case fromActions.GET_CLIENTREG_DONE: {
+            return {
+                ...state,
+                clientreg: action.payload, message: '', loading: false
+            }
+        }
+        case fromActions.GET_CLIENTREG_FAILED: {
             return {
                 ...state, message: action.payload, loading: false
             }

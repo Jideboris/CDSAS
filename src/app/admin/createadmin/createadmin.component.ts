@@ -5,7 +5,7 @@ import { AdminState } from '../store/reducers/admin'
 import * as fromActions from '../store/actions/admin'
 import { Observable } from 'rxjs/internal/Observable';
 import { Dropdown } from '../model/Adminstrator';
-import { getRoles, getPositions } from '../store/selectors/admin';
+import { getClientRegistration, getPositions } from '../store/selectors/admin';
 
 @Component({
   selector: 'app-createadmin',
@@ -18,20 +18,42 @@ export class CreateadminComponent implements OnInit, OnDestroy {
   }
   @Input() message: string = ''
   model: any = {}
-  code: string
+  code = ''
+  private clientreg: any
   private sub: any;
   positions$: Observable<Dropdown[]>
-  constructor(private router: Router, private route: ActivatedRoute, private store: Store<AdminState>) { }
-
-  ngOnInit() {
+  clientreg$: Observable<string>
+  constructor(private router: Router, private route: ActivatedRoute, private store: Store<AdminState>) {
     this.positions$ = this.store.select(getPositions)
     this.sub = this.route.params.subscribe(params => {
       this.code = params['regcode']
-      console.log(this.code)
-      this.model.client = this.code
+      setTimeout(() => this.store.dispatch(new fromActions.GetClientRegAction(this.code)))
+    })
+  }
+
+  ngOnInit() {
+    this.clientreg$ = this.store.select(getClientRegistration)
+    this.clientreg$.subscribe(x => {
+      this.clientreg = x
+      setTimeout(() => this.setModel(this.clientreg))
       //check if the code is still valid and active
       //this.router.navigateByUrl('/login')
     })
+  }
+  setModel(clientreg) {
+    let reg = clientreg[0]
+    let model = this.model
+    if (reg !== undefined) {
+      model.firstname = reg.firstname
+      model.lastname = reg.lastname
+      model.email = reg.email
+      model.position = reg.position
+      model.companyname = reg.companyname
+      model.companyregnumber = reg.regnumber
+    }
+
+
+
   }
   onSubmit() {
     const mod = this.model

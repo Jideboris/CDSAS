@@ -3,6 +3,10 @@ import { AdminState } from '../reducers/admin'
 
 export const getAdminState = createFeatureSelector<AdminState>('adminState')
 
+export const getClientRegistration = createSelector(
+    getAdminState,
+    (state: AdminState) => state.clientreg
+);
 export const getSubscriptions = createSelector(
     getAdminState,
     (state: AdminState) => state.subscriptions

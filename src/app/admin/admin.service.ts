@@ -3,7 +3,7 @@ import { of, Observable } from 'rxjs'
 import { Employee } from './model/Employee'
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { map } from 'rxjs/operators'
-import { SAVE_ADMIN_URL, GET_SUBSCRIPTION_URL, SAVE_CLIENT_REGISTRATION_URL } from '../constants'
+import { SAVE_ADMIN_URL, GET_SUBSCRIPTION_URL, SAVE_CLIENT_REGISTRATION_URL, GET_CLIENTREG_URL } from '../constants'
 import { Dropdown } from './model/Adminstrator'
 
 
@@ -26,7 +26,10 @@ export class AdminService {
     let output = this.http.get<Dropdown[]>(GET_SUBSCRIPTION_URL)
     return output || of()
   }
-
+  public getclientregistration(regcode: string): Observable<string> {
+    let output = this.http.get<string>(GET_CLIENTREG_URL + `${regcode}`)
+    return output || of()
+  }
   public saveAdmin(admin: string): Observable<any> {
     let output = {}
     let options = new HttpHeaders().set('Content-Type', 'application/json')

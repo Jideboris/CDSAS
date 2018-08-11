@@ -18,13 +18,30 @@ export const GET_SUBSCRIPTION = "GET_SUBSCRIPTION"
 export const GET_SUBSCRIPTION_DONE = "GET_SUBSCRIPTION_DONE"
 export const GET_SUBSCRIPTION_FAILED = 'GET_SUBSCRIPTION_FAILED'
 
+export const GET_CLIENTREG = "GET_CLIENTREG"
+export const GET_CLIENTREG_DONE = "GET_CLIENTREG_DONE"
+export const GET_CLIENTREG_FAILED = 'GET_CLIENTREG_FAILED'
+
+export class GetClientRegAction implements Action {
+  readonly type = GET_CLIENTREG
+  constructor(public regcode: string) { }
+}
+export class GetClientRegDoneAction implements Action {
+  readonly type = GET_CLIENTREG_DONE
+  constructor(public payload: string) { }
+}
+export class GetClientRegFailedAction implements Action {
+  readonly type = GET_CLIENTREG_FAILED
+  constructor(public payload: any) { }
+}
+
 export class GetSubscriptionAction implements Action {
   readonly type = GET_SUBSCRIPTION
   constructor() { }
 }
 export class GetSubscriptionDoneAction implements Action {
   readonly type = GET_SUBSCRIPTION_DONE
-  constructor(public subcriptions: any,public roles: any,public positions: any) { }
+  constructor(public subcriptions: any, public roles: any, public positions: any) { }
 }
 export class GetSubscriptionFailedAction implements Action {
   readonly type = GET_SUBSCRIPTION_FAILED
@@ -82,3 +99,6 @@ export type ALL_REDUCER_ACTIONS
   | GetSubscriptionAction
   | GetSubscriptionDoneAction
   | GetSubscriptionFailedAction
+  | GetClientRegAction
+  | GetClientRegDoneAction
+  | GetClientRegFailedAction
