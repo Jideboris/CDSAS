@@ -16,9 +16,9 @@ export class ClientRegComponent implements OnInit {
   subscriptions$: Observable<Dropdown[]>
   roles$: Observable<Dropdown[]>
   positions$: Observable<Dropdown[]>
-  
+
   constructor(private store: Store<AdminState>) {
-    
+
   }
 
   ngOnInit() {
@@ -26,7 +26,8 @@ export class ClientRegComponent implements OnInit {
     this.roles$ = this.store.select(getRoles)
     this.positions$ = this.store.select(getPositions)
   }
-  onSubmit(){
+  onSubmit() {
     this.store.dispatch(new fromActions.SaveClientRegistration(JSON.stringify(this.model)))
+    alert('Done!!Needs to navigate')
   }
 }

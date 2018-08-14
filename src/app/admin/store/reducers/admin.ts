@@ -108,6 +108,22 @@ export function reducer(state = initialState, action: fromActions.ALL_REDUCER_AC
                 ...state, message: action.payload, loading: false
             }
         }
+        case fromActions.ADD_CLIENT_REGISTRATION_FORM: {
+            return {
+                ...state, loading: true
+            }
+        }
+        case fromActions.ADD_CLIENT_REGISTRATION_FORM_DONE: {
+            return {
+                ...state,
+                admin: action.payload, message: '', loading: false
+            }
+        }
+        case fromActions.ADD_CLIENT_REGISTRATION_FORM_FAILED: {
+            return {
+                ...state, message: action.payload, loading: false
+            }
+        }
         default: {
             return state
         }

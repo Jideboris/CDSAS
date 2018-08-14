@@ -5,6 +5,7 @@ import { AdminState } from '../store/reducers/admin'
 import * as fromActions from '../store/actions/admin'
 import { Observable } from 'rxjs/internal/Observable';
 import { Dropdown } from '../model/Adminstrator';
+import { encrypt } from '../../../app/common';
 import { getClientRegistration, getPositions } from '../store/selectors/admin';
 
 @Component({
@@ -33,34 +34,43 @@ export class CreateadminComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.clientreg$ = this.store.select(getClientRegistration)
-    this.clientreg$.subscribe(x => {
-      this.clientreg = x
-      setTimeout(() => this.setModel(this.clientreg))
-      //check if the code is still valid and active
-      //this.router.navigateByUrl('/login')
+    this.clientreg$.subscribe(reg => {
+      this.clientreg = reg
+      if (this.clientreg.isvalid) {
+        let regs = this.clientreg.items[0]
+        if (regs !== undefined && regs.consumed) {
+          this.router.navigateByUrl('/login')
+        }
+        else {
+          setTimeout(() => this.setModel(regs))
+        }
+      }
+      else {
+        this.router.navigateByUrl('/invalid-code')
+      }
+
     })
   }
   setModel(clientreg) {
-    let reg = clientreg[0]
     let model = this.model
-    if (reg !== undefined) {
-      model.firstname = reg.firstname
-      model.lastname = reg.lastname
-      model.email = reg.email
-      model.position = reg.position
-      model.companyname = reg.companyname
-      model.companyregnumber = reg.regnumber
+    if (clientreg !== undefined) {
+      model.firstname = clientreg.firstname
+      model.lastname = clientreg.lastname
+      model.email = clientreg.email
+      model.position = clientreg.position
+      model.companyname = clientreg.companyname
+      model.companyregnumber = clientreg.regnumber
     }
-
-
-
   }
   onSubmit() {
+    //TODO:set consumed to true on registration
     const mod = this.model
     if (mod.password === mod.passwordconfirm && this.code !== '') {
-      //  let encryptedpass = secured.encrypt(mod.password)
-      // this.model.password = encryptedpass
-      this.store.dispatch(new fromActions.SaveAdmminAction(JSON.stringify(this.model)))
+      let encryptedpass = encrypt(mod.password)
+      this.model.password = encryptedpass
+      this.model.passwordconfirm = encryptedpass
+      this.model.regcode = this.code
+      this.store.dispatch(new fromActions.SaveClientRegistrationForm(JSON.stringify(this.model)))
     }
     else {
       this.message = "Please ensure password and comfirmation is the same"

@@ -22,6 +22,10 @@ export const GET_CLIENTREG = "GET_CLIENTREG"
 export const GET_CLIENTREG_DONE = "GET_CLIENTREG_DONE"
 export const GET_CLIENTREG_FAILED = 'GET_CLIENTREG_FAILED'
 
+export const ADD_CLIENT_REGISTRATION_FORM = "ADD_CLIENT_REGISTRATION_FORM"
+export const ADD_CLIENT_REGISTRATION_FORM_DONE = "ADD_CLIENT_REGISTRATION_FORM_DONE"
+export const ADD_CLIENT_REGISTRATION_FORM_FAILED = 'ADD_CLIENT_REGISTRATION_FORM_FAILED'
+
 export class GetClientRegAction implements Action {
   readonly type = GET_CLIENTREG
   constructor(public regcode: string) { }
@@ -86,6 +90,21 @@ export class SaveClientRegistrationFailed implements Action {
   readonly type = ADD_CLIENT_REGISTRATION_FAILED
   constructor(public payload: any) { }
 }
+
+export class SaveClientRegistrationForm implements Action {
+  readonly type = ADD_CLIENT_REGISTRATION_FORM
+  constructor(public payload: any) { }
+}
+export class SaveClientRegistrationFormDone implements Action {
+  readonly type = ADD_CLIENT_REGISTRATION_FORM_DONE
+  constructor(public payload: any) { }
+}
+export class SaveClientRegistrationFormFailed implements Action {
+  readonly type = ADD_CLIENT_REGISTRATION_FORM_FAILED
+  constructor(public payload: any) { }
+}
+
+
 export type ALL_REDUCER_ACTIONS
   = GetEmployeesAction
   | GetEmployeesDoneAction
@@ -102,3 +121,6 @@ export type ALL_REDUCER_ACTIONS
   | GetClientRegAction
   | GetClientRegDoneAction
   | GetClientRegFailedAction
+  | SaveClientRegistrationForm
+  | SaveClientRegistrationFormDone
+  | SaveClientRegistrationFormFailed
