@@ -20,6 +20,7 @@ export class CreateadminComponent implements OnInit, OnDestroy {
   @Input() message: string = ''
   model: any = {}
   code = ''
+  disabledbutton = false
   private clientreg: any
   private sub: any;
   positions$: Observable<Dropdown[]>
@@ -35,6 +36,9 @@ export class CreateadminComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.clientreg$ = this.store.select(getClientRegistration)
     this.clientreg$.subscribe(reg => {
+      if (reg === '' || reg === undefined) {
+        return
+      }
       this.clientreg = reg
       if (this.clientreg.isvalid) {
         let regs = this.clientreg.items[0]
@@ -48,7 +52,6 @@ export class CreateadminComponent implements OnInit, OnDestroy {
       else {
         this.router.navigateByUrl('/invalid-code')
       }
-
     })
   }
   setModel(clientreg) {
@@ -71,6 +74,8 @@ export class CreateadminComponent implements OnInit, OnDestroy {
       this.model.passwordconfirm = encryptedpass
       this.model.regcode = this.code
       this.store.dispatch(new fromActions.SaveClientRegistrationForm(JSON.stringify(this.model)))
+      this.disabledbutton = true
+      // this.router.navigateByUrl('/login')
     }
     else {
       this.message = "Please ensure password and comfirmation is the same"
