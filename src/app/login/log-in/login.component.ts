@@ -21,9 +21,8 @@ export class LoginComponent implements OnInit {
   constructor(private router: Router, private store: Store<AdminState>) { }
 
   ngOnInit() {
-
+    localStorage.clear()
   }
-
   reset() {
 
   }
@@ -45,18 +44,19 @@ export class LoginComponent implements OnInit {
         if (info.password === encryptedpass) {
           let role = info.logininfo.role
           localStorage.setItem('role', role)
-          localStorage.setItem('isvalid','true')
+          localStorage.setItem('isvalid', 'true')
           switch (role) {
             case 'Superuser':
-              this.router.navigateByUrl('/addemployees')
+              this.router.navigateByUrl('/admin')
               break
             case 'Admin':
+              this.router.navigateByUrl('/addemployees')
               break
           }
         }
       }
       else {
-        localStorage.setItem('isvalid','false')
+        localStorage.setItem('isvalid', 'false')
         this.message = "Username or password is invalid!!!"
       }
     }))

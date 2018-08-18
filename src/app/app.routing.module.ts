@@ -47,7 +47,7 @@ export const routes: Routes = [
         component: AnswerWriteComponent
     },
     {
-        path: '',
+        path: 'admin',
         component: ClientRegComponent
     },
     {
