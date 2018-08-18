@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core'
 import { of, Observable } from 'rxjs'
-import { Employee } from './model/Employee'
+import { Employee } from '../model/Employee'
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { map } from 'rxjs/operators'
 import { SAVE_ADMIN_URL, GET_SUBSCRIPTION_URL, SAVE_CLIENT_REGISTRATION_URL, GET_CLIENTREG_URL, SAVE_CLIENT_REGISTRATION_FORM_URL, GET_LOGININFO_URL } from '../constants'
-import { Dropdown } from './model/Adminstrator'
+import { Dropdown } from '../model/Adminstrator'
 
 
 @Injectable({

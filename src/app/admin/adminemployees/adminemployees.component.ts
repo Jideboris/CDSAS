@@ -1,11 +1,11 @@
 import { Component, OnInit, Input } from '@angular/core'
-import { Employee } from '../model/Employee'
+import { Employee } from '../../model/Employee'
 import { AdminService } from '../admin.service'
 import { Observable } from 'rxjs'
-import { AdminState } from '../store/reducers/admin'
+import { AdminState } from '../../store/reducers/admin'
 import { Store } from '@ngrx/store'
-import { getEmployees } from '../store/selectors/admin'
-import * as fromActions from '../store/actions/admin'
+import { getEmployees } from '../../store/selectors/admin'
+import * as fromActions from '../../store/actions/admin'
 
 @Component({
   selector: 'app-adminemployees',

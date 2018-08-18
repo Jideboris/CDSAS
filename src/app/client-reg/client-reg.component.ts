@@ -1,9 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core'
 import { Store } from '@ngrx/store'
-import { AdminState } from '../admin/store/reducers/admin'
-import * as fromActions from '../admin/store/actions/admin'
-import { getSubscriptions, getRoles, getPositions } from '../admin/store/selectors/admin';
-import { Dropdown } from '../admin/model/Adminstrator';
+import { AdminState } from '../store/reducers/admin'
+import * as fromActions from '../store/actions/admin'
+import { getSubscriptions, getRoles, getPositions } from '../store/selectors/admin';
+import { Dropdown } from '../model/Adminstrator';
 import { Observable } from 'rxjs'
 
 @Component({

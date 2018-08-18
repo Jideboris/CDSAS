@@ -1,12 +1,12 @@
 import { Component, OnInit, OnDestroy, Input } from '@angular/core'
 import { Router, ActivatedRoute } from '@angular/router'
 import { Store } from '@ngrx/store'
-import { AdminState } from '../store/reducers/admin'
-import * as fromActions from '../store/actions/admin'
+import { AdminState } from '../../store/reducers/admin'
+import * as fromActions from '../../store/actions/admin'
 import { Observable } from 'rxjs/internal/Observable';
-import { Dropdown } from '../model/Adminstrator';
-import { encrypt } from '../../../app/common';
-import { getClientRegistration, getPositions } from '../store/selectors/admin';
+import { Dropdown } from '../../model/Adminstrator';
+import { encrypt } from '../../common';
+import { getClientRegistration, getPositions } from '../../store/selectors/admin';
 
 @Component({
   selector: 'app-createadmin',

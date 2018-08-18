@@ -3,7 +3,7 @@ import { Effect, Actions, ofType } from '@ngrx/effects'
 import { Action } from '@ngrx/store'
 import { Observable, of } from 'rxjs'
 import * as fromActions from '../actions/admin'
-import { AdminService } from '../../admin.service'
+import { AdminService } from '../../admin/admin.service'
 import { map, switchMap, catchError } from "rxjs/operators"
 
 

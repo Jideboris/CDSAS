@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core'
 import { Router } from '@angular/router'
 import { Store } from '@ngrx/store';
-import { AdminState } from '../../admin/store/reducers/admin';
-import * as fromActions from '../../admin/store/actions/admin'
-import { getLoginInfo } from '../../admin/store/selectors/admin';
-import { encrypt } from '../../../app/common';
+import { AdminState } from '../../store/reducers/admin';
+import * as fromActions from '../../store/actions/admin'
+import { getLoginInfo } from '../../store/selectors/admin';
+import { encrypt } from '../../common';
 import { Observable } from '../../../../node_modules/rxjs';
 
 
