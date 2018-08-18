@@ -100,5 +100,18 @@ export class EmployeeEffects {
             })
             ))
     )
+    @Effect()
+    getlogininfo$: Observable<Action> = this.actions$.pipe(
+        ofType<fromActions.GetLoginInfo>(fromActions.GET_LOGIN_INFO),
+        switchMap(action => this.adminService.getLoginInfo(action.payload)
+            .pipe(map(result => {
+                if (!result) {
+                    return new fromActions.GetLoginInfoFailed('Could not fetch data!')
+                } else {
+                    return new fromActions.GetLoginInfoDone(result)
+                }
+            })
+            ))
+    )
 
 }

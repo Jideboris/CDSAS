@@ -26,6 +26,10 @@ export const ADD_CLIENT_REGISTRATION_FORM = "ADD_CLIENT_REGISTRATION_FORM"
 export const ADD_CLIENT_REGISTRATION_FORM_DONE = "ADD_CLIENT_REGISTRATION_FORM_DONE"
 export const ADD_CLIENT_REGISTRATION_FORM_FAILED = 'ADD_CLIENT_REGISTRATION_FORM_FAILED'
 
+export const GET_LOGIN_INFO = "GET_LOGIN_INFO"
+export const GET_LOGIN_INFO_DONE = "GET_LOGIN_INFO_DONE"
+export const GET_LOGIN_INFO_FAILED = 'GET_LOGIN_INFO_FAILED'
+
 export class GetClientRegAction implements Action {
   readonly type = GET_CLIENTREG
   constructor(public regcode: string) { }
@@ -103,6 +107,18 @@ export class SaveClientRegistrationFormFailed implements Action {
   readonly type = ADD_CLIENT_REGISTRATION_FORM_FAILED
   constructor(public payload: any) { }
 }
+export class GetLoginInfo implements Action {
+  readonly type = GET_LOGIN_INFO
+  constructor(public payload: any) { }
+}
+export class GetLoginInfoDone implements Action {
+  readonly type = GET_LOGIN_INFO_DONE
+  constructor(public payload: any) { }
+}
+export class GetLoginInfoFailed implements Action {
+  readonly type = GET_LOGIN_INFO_FAILED
+  constructor(public payload: any) { }
+}
 
 
 export type ALL_REDUCER_ACTIONS
@@ -124,3 +140,6 @@ export type ALL_REDUCER_ACTIONS
   | SaveClientRegistrationForm
   | SaveClientRegistrationFormDone
   | SaveClientRegistrationFormFailed
+  | GetLoginInfo
+  | GetLoginInfoDone
+  | GetLoginInfoFailed

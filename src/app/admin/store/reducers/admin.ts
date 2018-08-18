@@ -8,8 +8,9 @@ export interface AppAdminState {
 export interface AdminState {
     subscriptions: Dropdown[]
     roles: Dropdown[]
-    postions: Dropdown[]
+    positions: Dropdown[]
     employees: any
+    logininfo: any
     admin: string
     message: string
     loading: boolean
@@ -19,8 +20,9 @@ export interface AdminState {
 export const initialState: AdminState = {
     subscriptions: [],
     roles: [],
-    postions: [],
+    positions: [],
     employees: {},
+    logininfo: {},
     admin: '',
     message: '',
     loading: false,
@@ -36,7 +38,7 @@ export function reducer(state = initialState, action: fromActions.ALL_REDUCER_AC
         case fromActions.GET_SUBSCRIPTION_DONE: {
             return {
                 ...state,
-                subscriptions: action.subcriptions, roles: action.roles, postions: action.positions, loading: false
+                subscriptions: action.subcriptions, roles: action.roles, positions: action.positions, loading: false
             }
         }
         case fromActions.GET_SUBSCRIPTION_FAILED: {
@@ -120,6 +122,22 @@ export function reducer(state = initialState, action: fromActions.ALL_REDUCER_AC
             }
         }
         case fromActions.ADD_CLIENT_REGISTRATION_FORM_FAILED: {
+            return {
+                ...state, message: action.payload, loading: false
+            }
+        }
+        case fromActions.GET_LOGIN_INFO: {
+            return {
+                ...state, loading: true
+            }
+        }
+        case fromActions.GET_LOGIN_INFO_DONE: {
+            return {
+                ...state,
+                logininfo: action.payload, message: '', loading: false
+            }
+        }
+        case fromActions.GET_CLIENTREG_FAILED: {
             return {
                 ...state, message: action.payload, loading: false
             }
