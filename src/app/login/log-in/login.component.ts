@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
               this.router.navigateByUrl('/admin')
               break
             case 'Admin':
-              this.router.navigateByUrl('/addemployees')
+              this.router.navigate(['/addemployees'], { queryParams: { regcode: info.regcode, clientId: info._id } })
               break
           }
         }

@@ -14,10 +14,10 @@ export class AdminService {
 
   constructor(private http: HttpClient) { }
   public getemployees(): Observable<Employee[]> {
-    let fakeUsers = [{ empid: 1, firstname: 'Dhiraj', lastname: 'Ray', email: 'dhiraj@gmail.com' },
-    { empid: 1, firstname: 'Tom', lastname: 'Jac', email: 'Tom@gmail.com' },
-    { empid: 1, firstname: 'Hary', lastname: 'Pan', email: 'hary@gmail.com' },
-    { empid: 1, firstname: 'praks', lastname: 'pb', email: 'praks@gmail.com' },
+    let fakeUsers = [{ empid: 1, firstname: 'Dhiraj', lastname: 'Ray', email: 'dhiraj@gmail.com', regcode: '123', clientId: 'abc' },
+    { empid: 1, firstname: 'Tom', lastname: 'Jac', email: 'Tom@gmail.com', regcode: '123', clientId: 'abc' },
+    { empid: 1, firstname: 'Hary', lastname: 'Pan', email: 'hary@gmail.com', regcode: '123', clientId: 'abc' },
+    { empid: 1, firstname: 'praks', lastname: 'pb', email: 'praks@gmail.com', regcode: '123', clientId: 'abc' },
     ];
     return of<Employee[]>(fakeUsers)
   }
@@ -30,7 +30,7 @@ export class AdminService {
     let output = this.http.get<string>(GET_CLIENTREG_URL + `${regcode}`)
     return output || of()
   }
-  public  getLoginInfo(username: string): Observable<string> {
+  public getLoginInfo(username: string): Observable<string> {
     let output = this.http.get<string>(GET_LOGININFO_URL + `${username}`)
     return output || of()
   }
