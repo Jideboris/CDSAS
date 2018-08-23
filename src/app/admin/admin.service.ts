@@ -14,10 +14,10 @@ export class AdminService {
 
   constructor(private http: HttpClient) { }
   public getemployees(): Observable<Employee[]> {
-    let fakeUsers = [{ empid: 1, firstname: 'Dhiraj', lastname: 'Ray', email: 'dhiraj@gmail.com', regcode: '123', clientId: 'abc' },
-    { empid: 1, firstname: 'Tom', lastname: 'Jac', email: 'Tom@gmail.com', regcode: '123', clientId: 'abc' },
-    { empid: 1, firstname: 'Hary', lastname: 'Pan', email: 'hary@gmail.com', regcode: '123', clientId: 'abc' },
-    { empid: 1, firstname: 'praks', lastname: 'pb', email: 'praks@gmail.com', regcode: '123', clientId: 'abc' },
+    let fakeUsers = [{ empid: '1001', firstname: 'Dhiraj', lastname: 'Ray', email: 'dhiraj@gmail.com', regcode: '123', clientId: 'abc' },
+    { empid: '2001', firstname: 'Tom', lastname: 'Jac', email: 'Tom@gmail.com', regcode: '123', clientId: 'abc' },
+    { empid: '3001', firstname: 'Hary', lastname: 'Pan', email: 'hary@gmail.com', regcode: '123', clientId: 'abc' },
+    { empid: '4001', firstname: 'praks', lastname: 'pb', email: 'praks@gmail.com', regcode: '123', clientId: 'abc' },
     ];
     return of<Employee[]>(fakeUsers)
   }

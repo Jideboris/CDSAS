@@ -1,9 +1,6 @@
 export interface Employee {
-  empid: number
+  empid: string
   firstname: string
   lastname: string
   email: string
-  regcode: string
-  clientId: string
 }
-  

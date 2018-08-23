@@ -8,7 +8,7 @@ import { map, switchMap, catchError } from "rxjs/operators"
 
 
 @Injectable()
-export class EmployeeEffects {
+export class AdminEffects {
     constructor(private actions$: Actions,
         private adminService: AdminService) {
     }

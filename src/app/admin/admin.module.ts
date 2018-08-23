@@ -7,7 +7,8 @@ import { FormsModule } from '@angular/forms'
 import { StoreModule } from '@ngrx/store'
 import { EffectsModule } from '@ngrx/effects'
 import { reducers, metaReducers } from '../store/reducers'
-import { EmployeeEffects } from '../store/effects/admin'
+import { AdminEffects } from '../store/effects/admin'
+import { ClientEffects } from '../store/effects/client'
 import { LoginService } from '../login/login.service'
 
 @NgModule({
@@ -15,7 +16,7 @@ import { LoginService } from '../login/login.service'
     CommonModule,
     FormsModule,
     StoreModule.forRoot(reducers, { metaReducers }),
-    EffectsModule.forRoot([EmployeeEffects])
+    EffectsModule.forRoot([AdminEffects, ClientEffects])
   ],
   declarations: [
     CreateadminComponent,

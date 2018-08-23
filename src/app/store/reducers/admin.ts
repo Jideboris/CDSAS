@@ -2,7 +2,8 @@ import * as fromActions from '../actions/admin'
 import { Dropdown } from '../../model/Adminstrator';
 
 export interface AppAdminState {
-    adminState: AdminState
+    adminState: AdminState,
+    clientState: ClientState
 };
 
 export interface AdminState {
@@ -17,6 +18,11 @@ export interface AdminState {
     clientreg: string
 };
 
+export interface ClientState {
+    employees: any
+    message: string
+    loading: boolean
+};
 export const initialState: AdminState = {
     subscriptions: [],
     roles: [],
