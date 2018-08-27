@@ -1,13 +1,12 @@
-import { Component, OnInit, Input } from '@angular/core'
+import { Component, OnInit, Input, OnDestroy } from '@angular/core'
 import { Employee } from '../../model/Employee'
-import { AdminService } from '../admin.service'
-import { Observable } from 'rxjs'
-import { AdminState } from '../../store/reducers/admin'
+import { Observable, of } from 'rxjs'
+import { ClientState } from '../../store/reducers/admin'
 import { Store } from '@ngrx/store'
-import { getEmployees } from '../../store/selectors/admin'
 import * as fromActions from '../../store/actions/client'
-import * as fromActionsAdmin from '../../store/actions/admin'
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
+import { getClientEmployees } from '../../store/selectors/client';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-adminemployees',
@@ -15,46 +14,73 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./adminemployees.component.css']
 })
 export class AdminemployeesComponent implements OnInit {
+
   @Input() isaddemployee: boolean
-  @Input() employees: Employee[]
-  employees$: Observable<Employee[]>
+  // @Input() employees: Employee[]
+  employees$: Observable<any> = of([])
+  data$: Observable<any> = of([])
   model: any = {}
   clientId: string
   regcode: string
-  constructor(private store: Store<AdminState>, private router: ActivatedRoute, private adminservice: AdminService) {
+  data: any
+  initialemployees: any
+  employs: Employee[] = []
+  empid: string = ''
+  firstname: string = ''
+  lastname: string = ''
+  email: string = ''
+  constructor(private store: Store<ClientState>, private router: ActivatedRoute) {
     this.isaddemployee = true
-    this.employees = []
-    this.store.dispatch(new fromActionsAdmin.GetEmployeesAction())
-    this.employees$ = this.store.select(getEmployees)
+    this.initialemployees = []
+    this.employs = []
+    this.model = {
+      employees: [],
+      clientId: '',
+      regcode: ''
+    }
   }
+
+
   ngOnInit() {
     this.router.queryParamMap.subscribe(params => {
       this.regcode = params.get('regcode')
       this.clientId = params.get('clientId')
     });
+    this.store.dispatch(new fromActions.GetClientEmployees(this.regcode))
+    setTimeout(() => this.data$ = this.store.select(getClientEmployees))
+    setTimeout(() => this.data$.subscribe(x => {
+      this.data = x
+      if (this.data[0] !== undefined) {
+        this.initialemployees = this.data[0].employees
+        this.employees$ = of(this.initialemployees)
+      }
+    }))
   }
-  getemployees() {
-    this.adminservice.getemployees().subscribe(
-      data => this.employees = data)
-  }
+
   removeemployee() {
-    this.employees.pop()
+    this.isaddemployee = true
   }
   saveemployee() {
-
-    this.model.employees = this.employees
-    this.model.regcode = this.regcode
-    this.model.clientId = this.clientId
-
-    console.log(this.model)
-
+    let employ = { empid: this.model.empid, firstname: this.model.firstname, lastname: this.model.lastname, email: this.model.email }
+    this.employs.push(employ)
+    this.model = {
+      regcode: this.regcode,
+      clientId: this.clientId,
+      employees: this.employs.concat(this.initialemployees)
+    }
     this.store.dispatch(new fromActions.SaveClientEmployees(JSON.stringify(this.model)))
+    this.isaddemployee = true
+    this.employees$ = of(this.model.employees)
   }
-  //TODO:save and remove buttons would only appear if add is clicked.
+   
   addemployee() {
-    //this has to be deleting old savings and installing new stuffs all the time.
-    //validate to ensure the default values are not sent
+    this.remove()
     this.isaddemployee = false
-    this.employees.push({ empid: 'empid', firstname: 'firstname', lastname: 'lastname', email: 'email@yahoo.com'})
+  }
+  remove(){
+    this.model.empid = ''
+    this.model.firstname = ''
+    this.model.lastname = ''
+    this.model.email = '' 
   }
 }

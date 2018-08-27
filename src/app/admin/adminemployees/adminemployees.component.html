@@ -6,27 +6,79 @@
   </div>
 
   <div class="row mb-2 mr-1 float-right">
-      <div class="ml-1">
-          <button type="button" class="btn btn-primary">Publish</button>
-        </div>
-        <div class="ml-1">
-            <button type="button" class="btn btn-primary">Import</button>
-        </div>
+    <div class="ml-1">
+      <button type="button" class="btn btn-primary">Publish</button>
+    </div>
+    <div class="ml-1">
+      <button type="button" class="btn btn-primary">Import</button>
+    </div>
   </div>
+  <div class="form-group">
+    <div class="form">
+      <form name="form" (ngSubmit)="f.form.valid && saveemployee()" #f="ngForm" novalidate>
+        <div class="row form-group" [hidden]="isaddemployee">
+          <table class="table">
+            <tbody>
+              <tr>
+                <td scope="row">
+                  <input type="text" class="form-control" placeholder="Emp ID" [(ngModel)]="model.empid" name="empid" #empid="ngModel" [ngClass]="{ 'is-invalid': f.submitted && empid.invalid }"
+                    required/>
+                </td>
+                <td>
+                  <input type="text" class="form-control" placeholder="First Name" [(ngModel)]="model.firstname" name="firstname" #firstname="ngModel"
+                    [ngClass]="{ 'is-invalid': f.submitted && firstname.invalid }" required/>
+                </td>
+                <td>
+                  <input type="text" class="form-control" placeholder="Last Name" [(ngModel)]="model.lastname" name="lastname" #lastname="ngModel"
+                    [ngClass]="{ 'is-invalid': f.submitted && lastname.invalid }" required/>
+                </td>
+                <td>
+                  <input type="email" class="form-control" placeholder="Email" [(ngModel)]="model.email" name="email" #email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && email.invalid }"
+                    required/>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-12">
+          <div class="col-1 float-left">
+            <button type="button" class="btn btn-primary" (click)="addemployee()">Add</button>
+          </div>
+          <div class="col-3 float-right">
+            <div class="col-12">
+              <div class="float-left ml-1" [hidden]="isaddemployee">
+                <button type="submit" class="btn btn-secondary">Save</button>
+              </div>
+              <div class="float-left ml-1" [hidden]="isaddemployee">
+                <button type="button" class="btn btn-secondary auto" (click)="removeemployee()">Cancel</button>
+              </div>
+            </div>
 
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <br/>
+  <br/>
   <div class="form-group">
     <div class="table-responsive">
       <table class="table">
         <thead class="thead-light">
           <tr>
+            <th scope="col">Nos</th>
             <th scope="col">Employee ID</th>
             <th scope="col">First Name</th>
             <th scope="col">Last Name</th>
             <th scope="col">Email</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let emp of employees$ | async">
+          <tr *ngFor="let emp of employees$ | async let i= index">
+            <td>
+              {{i+1}}
+            </td>
             <td>
               {{emp.empid}}
             </td>
@@ -39,41 +91,15 @@
             <td>
               {{emp.email}}
             </td>
+            <td>
+              <a href="#">delete</a>
+            </td>
           </tr>
         </tbody>
       </table>
     </div>
   </div>
 
-  <div class="form-group" [hidden]="isaddemployee">
-    <table class="table">
-      <tbody>
-        <tr *ngFor="let emp of employees">
-          <td scope="row">
-            <input type="text" class="form-control" placeholder="Emp ID" [(ngModel)]="emp.empid" />
-          </td>
-          <td>
-            <input type="text" class="form-control" placeholder="First Name" [(ngModel)]="emp.firstname" />
-          </td>
-          <td>
-            <input type="text" class="form-control" placeholder="Last Name" [(ngModel)]="emp.lastname" />
-          </td>
-          <td>
-            <input type="email" class="form-control" placeholder="Email" [(ngModel)]="emp.email" />
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <div class="row float-right mr-2">
-    <div class="float-left ml-1">
-      <button type="button" class="btn btn-primary" (click)="addemployee()">Add</button>
-    </div>
-    <div class="float-left ml-1">
-      <button type="button" class="btn btn-secondary" (click)="saveemployee()">Save</button>
-    </div>
-    <div class="float-right ml-1">
-      <button type="button" class="btn btn-secondary auto" (click)="removeemployee()">Cancel</button>
-    </div>
-  </div>
+
+
 </div>

@@ -24,6 +24,7 @@ export const routes: Routes = [
     {
         path: 'addemployees',
         canActivate: [AuthGuard],
+        runGuardsAndResolvers: 'always',
         component: AdminemployeesComponent
     },
     {
