@@ -36,8 +36,24 @@ export class ClientEffects {
                 if (!result) {
                     return new fromActions.GetClientEmployeesFailed('Could not fetch data!')
                 } else {
-                    console.log(result)
                     return new fromActions.GetClientEmployeesDone(result)
+                }
+            }),
+            catchError((err, caught) => {
+                return of(err)
+            })
+        )
+
+    @Effect()
+    removeclientemployee$: Observable<Action> = this.actions$
+        .ofType<fromActions.DeleteClientEmployee>(fromActions.DELETE_CLIENT_EMPLOYEE)
+        .pipe(switchMap((regcode, employee) => this.clientService.deleteclientemployee(regcode, employee)))
+        .pipe(
+            map(result => {
+                if (!result) {
+                    return new fromActions.DeleteClientEmployeeFailed('Could not fetch data!')
+                } else {
+                    return new fromActions.DeleteClientEmployeeDone(result)
                 }
             }),
             catchError((err, caught) => {

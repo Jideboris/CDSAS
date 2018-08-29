@@ -18,7 +18,11 @@ export class ClientsService {
     return of(output)
   }
   public getclientemployees(regcode: string): Observable<string> {
-    let output = this.http.get<string>(GET_CLIENT_EMPLOYEES_URL + `${regcode}`) 
+    let output = this.http.get<string>(GET_CLIENT_EMPLOYEES_URL + `${regcode}`)
+    return output //|| output
+  }
+  public deleteclientemployee(regcode: any, employee: any): Observable<string> {
+    let output = this.http.get<string>(GET_CLIENT_EMPLOYEES_URL + `${regcode}` + `/${employee}`)
     return output //|| output
   }
 

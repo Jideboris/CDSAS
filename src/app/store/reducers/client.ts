@@ -41,6 +41,22 @@ export function clientreducer(state = initialState, action: fromActions.ALL_REDU
                 ...state, message: action.payload, loading: false
             }
         }
+        case fromActions.DELETE_CLIENT_EMPLOYEE: {
+            return {
+                ...state, loading: true
+            }
+        }
+        case fromActions.DELETE_CLIENT_EMPLOYEE_DONE: {
+            return {
+                ...state,
+                employees: action.payload, message: '', loading: false
+            }
+        }
+        case fromActions.DELETE_CLIENT_EMPLOYEE_FAILED: {
+            return {
+                ...state, message: action.payload, loading: false
+            }
+        }
         default: {
             return state
         }

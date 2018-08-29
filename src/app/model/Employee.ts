@@ -4,3 +4,7 @@ export interface Employee {
   lastname: string
   email: string
 }
+export interface EmployData {
+  regcode: string
+  employee: string
+}
