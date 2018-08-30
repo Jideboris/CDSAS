@@ -14,7 +14,11 @@ import { AnswerWriteComponent } from './answer-write/answer-write.component';
 import { ClientRegComponent } from './client-reg/client-reg.component';
 import { ClientsComponent } from './clients/clients.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
-import { CyberIssuesComponent } from './cyber-issues/cyber-issues.component'
+import { CyberIssuesComponent } from './cyber-issues/cyber-issues.component';
+import { HomeComponent } from './home/home.component';
+import { NewsComponent } from './news/news.component';
+import { ContactComponent } from './contact/contact.component';
+import { AboutusComponent } from './aboutus/aboutus.component'
 
 @NgModule({
   declarations: [
@@ -27,7 +31,11 @@ import { CyberIssuesComponent } from './cyber-issues/cyber-issues.component'
     ClientRegComponent,
     ClientsComponent,
     PagenotfoundComponent,
-    CyberIssuesComponent
+    CyberIssuesComponent,
+    HomeComponent,
+    NewsComponent,
+    ContactComponent,
+    AboutusComponent
   ],
   imports: [
     BrowserModule,

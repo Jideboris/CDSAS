@@ -10,12 +10,12 @@ import { AnswerWriteComponent } from './answer-write/answer-write.component'
 import { CyberIssuesComponent } from './cyber-issues/cyber-issues.component'
 import { BoardComponent } from './board/board.component'
 import { ClientsComponent } from './clients/clients.component'
-
-
-
-
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component'
-import { ClientRegComponent } from './client-reg/client-reg.component';
+import { ClientRegComponent } from './client-reg/client-reg.component'
+import { HomeComponent } from './home/home.component'
+import { NewsComponent } from './news/news.component';
+import { ContactComponent } from './contact/contact.component';
+import { AboutusComponent } from './aboutus/aboutus.component';
 export const routes: Routes = [
     {
         path: 'client/:regcode',
@@ -52,13 +52,29 @@ export const routes: Routes = [
         component: ClientRegComponent
     },
     {
+        path: 'about',
+        component: AboutusComponent
+    },
+    {
+        path: 'contact',
+        component: ContactComponent
+    },
+    {
+        path: 'home',
+        component: HomeComponent
+    },
+    {
+        path: 'news',
+        component: NewsComponent
+    },
+    {
         path: 'cyberissues',
-        canActivate: [AuthGuard],
+       // canActivate: [AuthGuard],
         component: CyberIssuesComponent
     },
     {
         path: 'board',
-        canActivate: [AuthGuard],
+        //canActivate: [AuthGuard],
         component: BoardComponent
     },
     {
