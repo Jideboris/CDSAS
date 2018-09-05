@@ -22,6 +22,7 @@ export interface ClientState {
     employees: any
     message: string
     loading: boolean
+    emailstate: any
 };
 export const initialState: AdminState = {
     subscriptions: [],

@@ -1,6 +1,5 @@
 import { Action } from '@ngrx/store'
 import { Employee } from '../../model/Employee'
-import { Dropdown } from '../../model/Adminstrator'
 
 export const GET_EMPLOYEES = "GET_EMPLOYEES"
 export const GET_EMPLOYEES_DONE = "GET_EMPLOYEES_DONE"

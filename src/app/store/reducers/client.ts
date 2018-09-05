@@ -5,6 +5,7 @@ export const initialState: ClientState = {
     employees: {},
     message: '',
     loading: false,
+    emailstate: {}
 }
 
 export function clientreducer(state = initialState, action: fromActions.ALL_REDUCER_ACTIONS): ClientState {

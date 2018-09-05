@@ -1,5 +1,4 @@
 import { Action } from '@ngrx/store'
-import { EmployData } from '../../model/Employee';
 
 export const ADD_CLIENT_EMPLOYEE = "ADD_CLIENT_EMPLOYEE"
 export const ADD_CLIENT_EMPLOYEE_DONE = "ADD_CLIENT_EMPLOYEE_DONE"
