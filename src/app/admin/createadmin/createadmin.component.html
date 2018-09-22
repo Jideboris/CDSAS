@@ -10,7 +10,7 @@
         <div class="col-3">
           <label for="firstname">First Name</label>
         </div>
-        <div class="col">
+        <div class="col-7">
           <input type="text" class="form-control" name="firstname" [(ngModel)]="model.firstname" #firstname="ngModel" [ngClass]="{ 'is-invalid': f.submitted && firstname.invalid }"
             required />
           <div *ngIf="f.submitted && firstname.invalid" class="invalid-feedback">
@@ -23,7 +23,7 @@
         <div class="col-3">
           <label for="lastname">Last Name</label>
         </div>
-        <div class="col">
+        <div class="col-7">
           <input type="text" class="form-control" name="lastname" [(ngModel)]="model.lastname" #lastname="ngModel" [ngClass]="{ 'is-invalid': f.submitted && lastname.invalid }"
             required />
           <div *ngIf="f.submitted && lastname.invalid" class="invalid-feedback">
@@ -36,7 +36,7 @@
         <div class="col-3">
           <label for="email">Email</label>
         </div>
-        <div class="col">
+        <div class="col-7">
           <input type="email" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && email.invalid }"
             pattern="[^ @]*@[^ @]*" required/>
           <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
@@ -49,7 +49,7 @@
         <div class="col-3">
           <label for="username">Username</label>
         </div>
-        <div class="col">
+        <div class="col-7">
           <input type="text" class="form-control" name="username" [(ngModel)]="model.username" #username="ngModel" [ngClass]="{ 'is-invalid': f.submitted && username.invalid }"
             required />
           <div *ngIf="f.submitted && username.invalid" class="invalid-feedback">
@@ -61,7 +61,7 @@
         <div class="col-3">
           <label for="password">Password</label>
         </div>
-        <div class="col">
+        <div class="col-7">
           <input type="password" class="form-control" name="password" [(ngModel)]="model.password" #password="ngModel" [ngClass]="{ 'is-invalid': f.submitted && password.invalid }"
             required minlength="6" />
           <div *ngIf="f.submitted && password.invalid" class="invalid-feedback">
@@ -74,7 +74,7 @@
         <div class="col-3">
           <label for="passwordconfrim" class="confirmpassword">Comfirm password</label>
         </div>
-        <div class="col">
+        <div class="col-7">
           <input type="password" class="form-control" name="passwordconfirm" [(ngModel)]="model.passwordconfirm" #passwordconfirm="ngModel"
             [ngClass]="{ 'is-invalid': f.submitted && passwordconfirm.invalid }" required minlength="6" />
           <div *ngIf="f.submitted && passwordconfirm.invalid" class="invalid-feedback">
@@ -86,7 +86,7 @@
         <div class="col-3">
           <label for="position">Select position</label>
         </div>
-        <div class="col">
+        <div class="col-7">
           <select class="form-control" id="position" name="position" [(ngModel)]="model.position" #position="ngModel" [ngClass]="{ 'is-invalid': f.submitted && position.invalid }"
             required>
             <option *ngFor="let position of positions$ | async" [value]="position.description">{{position.description}}</option>
@@ -101,7 +101,7 @@
         <div class="col-3">
           <label for="companyname">Company</label>
         </div>
-        <div class="col">
+        <div class="col-7">
           <input type="text" class="form-control" name="companyname" [(ngModel)]="model.companyname" #companyname="ngModel" [ngClass]="{ 'is-invalid': f.submitted && companyname.invalid }"
             required />
           <div *ngIf="f.submitted && companyname.invalid" class="invalid-feedback">
@@ -113,7 +113,7 @@
         <div class="col-3">
           <label for="companyregnumber">Company registration number</label>
         </div>
-        <div class="col">
+        <div class="col-7">
           <input type="number" class="form-control" name="companyregnumber" [(ngModel)]="model.companyregnumber" #companyregnumber="ngModel"
             [ngClass]="{ 'is-invalid': f.submitted && companyregnumber.invalid }" required />
           <div *ngIf="f.submitted && companyregnumber.invalid" class="invalid-feedback">
@@ -125,7 +125,7 @@
         <div class="col-3">
           <label for="address">Address</label>
         </div>
-        <div class="col">
+        <div class="col-7">
           <textarea class="form-control" id="address" name="address" [(ngModel)]="model.address" #address="ngModel" [ngClass]="{ 'is-invalid': f.submitted && address.invalid }"
             rows="5" required></textarea>
           <div *ngIf="f.submitted && address.invalid" class="invalid-feedback">
@@ -137,7 +137,7 @@
         <div class="col-3">
           <label for="contact">Contact No.</label>
         </div>
-        <div class="col">
+        <div class="col-7">
           <input type="tel" class="form-control" name="contact" [(ngModel)]="model.contact" #contact="ngModel" [ngClass]="{'is-invalid': f.submitted && contact.invalid }"
             pattern="[0-9]{3}[0-9]{4}[0-9]{4}" required />
           <div *ngIf="f.submitted && contact.invalid" class="invalid-feedback">

@@ -79,7 +79,7 @@ export const routes: Routes = [
     },
     {
         path: 'clients',
-        canActivate: [AuthGuard],
+        // canActivate: [AuthGuard],
         component: ClientsComponent
     },
     { path: '**', component: PagenotfoundComponent }

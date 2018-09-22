@@ -1,10 +1,11 @@
-import { Component, OnInit, Input } from '@angular/core'
+import { Component, OnInit } from '@angular/core'
 import { Store } from '@ngrx/store'
 import { AdminState } from '../store/reducers/admin'
 import * as fromActions from '../store/actions/admin'
 import { getSubscriptions, getRoles, getPositions } from '../store/selectors/admin';
 import { Dropdown } from '../model/Adminstrator';
 import { Observable } from 'rxjs'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-client-reg',
@@ -16,8 +17,9 @@ export class ClientRegComponent implements OnInit {
   subscriptions$: Observable<Dropdown[]>
   roles$: Observable<Dropdown[]>
   positions$: Observable<Dropdown[]>
+  emailmodel: any = {}
 
-  constructor(private store: Store<AdminState>) { }
+  constructor(private store: Store<AdminState>, private router: Router) { }
 
   ngOnInit() {
     this.subscriptions$ = this.store.select(getSubscriptions)
@@ -26,9 +28,6 @@ export class ClientRegComponent implements OnInit {
   }
   onSubmit() {
     this.store.dispatch(new fromActions.SaveClientRegistration(JSON.stringify(this.model)))
-    
-  }
-  sendEmail(){
-    
+    this.router.navigateByUrl('/home')
   }
 }

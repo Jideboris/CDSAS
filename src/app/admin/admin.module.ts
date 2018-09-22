@@ -10,13 +10,14 @@ import { reducers, metaReducers } from '../store/reducers'
 import { AdminEffects } from '../store/effects/admin'
 import { ClientEffects } from '../store/effects/client'
 import { LoginService } from '../login/login.service'
+import { EmailEffects } from '../store/effects/email';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     StoreModule.forRoot(reducers, { metaReducers }),
-    EffectsModule.forRoot([AdminEffects, ClientEffects])
+    EffectsModule.forRoot([AdminEffects, ClientEffects,EmailEffects])
   ],
   declarations: [
     CreateadminComponent,

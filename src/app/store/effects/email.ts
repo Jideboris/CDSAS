@@ -9,7 +9,9 @@ import { EmailService } from '../../email.service';
 
 @Injectable()
 export class EmailEffects {
-    constructor(private actions$: Actions, private emailService: EmailService) {}
+    constructor(private actions$: Actions, private emailService: EmailService) {
+        
+    }
 
     @Effect()
     sendemail$: Observable<Action> = this.actions$.pipe(
