@@ -11,3 +11,16 @@ img{
 a:hover{
     cursor: pointer;
 }
+.right-panel {
+    background-color: #f3f5fa;
+    position: absolute;
+    width: 422px;
+    height: 100%;
+    right: 0;
+    top:85px;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
+    z-index: 11;
+    border-top-left-radius: 4px;
+    display: flex;
+    flex-direction: column;
+}

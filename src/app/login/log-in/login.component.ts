@@ -38,11 +38,13 @@ export class LoginComponent implements OnInit {
 
     setTimeout(() => this.logininfo$.subscribe(x => {
       this.logininfo = x
+      console.log(this.logininfo)
       if (this.logininfo[0] !== undefined) {
         this.message = ''
         let info = this.logininfo[0]
         if (info.password === encryptedpass) {
           let role = info.logininfo.role
+          console.log(role)
           localStorage.setItem('role', role)
           localStorage.setItem('isvalid', 'true')
           switch (role) {

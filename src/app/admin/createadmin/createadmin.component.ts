@@ -67,6 +67,7 @@ export class CreateadminComponent implements OnInit, OnDestroy {
   }
   onSubmit() {
     //TODO:set consumed to true on registration
+    //TODO:username must be validated to ensure it is unique
     const mod = this.model
     if (mod.password === mod.passwordconfirm && this.code !== '') {
       let encryptedpass = encrypt(mod.password)
@@ -75,7 +76,7 @@ export class CreateadminComponent implements OnInit, OnDestroy {
       this.model.regcode = this.code
       this.store.dispatch(new fromActions.SaveClientRegistrationForm(JSON.stringify(this.model)))
       this.disabledbutton = true
-      // this.router.navigateByUrl('/login')
+      this.router.navigateByUrl('/login')
     }
     else {
       this.message = "Please ensure password and comfirmation is the same"

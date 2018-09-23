@@ -23,7 +23,7 @@ export class AdminemployeesComponent implements OnInit {
   data: any
   employs = []
   addstore: boolean
-
+  show: boolean
 
   constructor(private store: Store<ClientState>, private router: ActivatedRoute) {
     this.isaddemployee = true
@@ -31,10 +31,13 @@ export class AdminemployeesComponent implements OnInit {
     this.model = {
       employees: [],
       clientId: '',
-      regcode: ''
+      regcode: '',
+      role: 'User'
     }
+    this.show = false
   }
-
+  //TODO:Publish button
+  //TODO:Right panel to add employee
 
   ngOnInit() {
     this.repertoireSubject = new BehaviorSubject<Employee[]>([])
@@ -78,6 +81,7 @@ export class AdminemployeesComponent implements OnInit {
   }
   removeemployee() {
     this.isaddemployee = true
+    this.show = false
   }
   saveemployee() {
     this.employs.push({ empid: this.model.empid, firstname: this.model.firstname, lastname: this.model.lastname, email: this.model.email })
@@ -98,8 +102,6 @@ export class AdminemployeesComponent implements OnInit {
     this.employees$ = of(this.employs)
 
     this.save(this.model)
-    console.log(this.employs)
-
   }
   save(model) {
     setTimeout(() => this.store.dispatch(new fromActions.SaveClientEmployees(JSON.stringify(model))))
@@ -107,11 +109,13 @@ export class AdminemployeesComponent implements OnInit {
   addemployee() {
     this.remove()
     this.isaddemployee = false
+    this.show = true
   }
   remove() {
     this.model.empid = ''
     this.model.firstname = ''
     this.model.lastname = ''
     this.model.email = ''
+
   }
 }
