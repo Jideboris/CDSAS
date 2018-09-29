@@ -105,6 +105,7 @@ export class AdminemployeesComponent implements OnInit {
   }
   save(model) {
     setTimeout(() => this.store.dispatch(new fromActions.SaveClientEmployees(JSON.stringify(model))))
+    this.show = false
   }
   addemployee() {
     this.remove()

@@ -1,22 +1,20 @@
-<div class="center">
-  <div class="row">
+<div class="row">
+  <div class="col">
     <div class="form-group mb-3">
       <h4>Employees Register</h4>
     </div>
   </div>
-
-  <div class="col-1 float-left">
+</div>
+<div class="row mb-3">
+  <div class="col">
     <button type="button" class="btn btn-primary" (click)="addemployee()">Add</button>
   </div>
-
-  <div class="row mb-2 mr-1 float-right">
-    <div class="ml-1">
-      <button type="button" class="btn btn-primary">Publish</button>
-    </div>
-    <div class="ml-1">
-      <button type="button" class="btn btn-primary">Import</button>
-    </div>
+  <div class="row mr-3">
+    <div class="mr-1"><button type="button" class="btn btn-primary">Publish</button></div>
+    <div class="ml-1"><button type="button" class="btn btn-primary">Import</button></div>
   </div>
+</div>
+<div class="row">
   <div class="right-panel" *ngIf="show">
     <div class="form">
       <form name="form" (ngSubmit)="f.form.valid && saveemployee()" #f="ngForm" novalidate>
@@ -24,81 +22,90 @@
           <table class="table">
             <tbody>
               <tr>
-                <td scope="row">
-                  <input type="text" class="form-control" placeholder="Emp ID" [(ngModel)]="model.empid" name="empid"
+                <td class="tab-input">Emp ID:</td>
+                <td>
+                  <input type="text" class="reg-input form-control" placeholder="Emp ID" [(ngModel)]="model.empid" name="empid"
                     #empid="ngModel" [ngClass]="{ 'is-invalid': f.submitted && empid.invalid }" required />
                 </td>
+              </tr>
+              <tr>
+                <td class="tab-input">First Name:</td>
                 <td>
-                  <input type="text" class="form-control" placeholder="First Name" [(ngModel)]="model.firstname" name="firstname"
-                    #firstname="ngModel" [ngClass]="{ 'is-invalid': f.submitted && firstname.invalid }" required />
+                  <input type="text" class="reg-input form-control" placeholder="First Name" [(ngModel)]="model.firstname"
+                    name="firstname" #firstname="ngModel" [ngClass]="{ 'is-invalid': f.submitted && firstname.invalid }"
+                    required />
                 </td>
+              </tr>
+              <tr>
+                <td class="tab-input">Last Name:</td>
                 <td>
-                  <input type="text" class="form-control" placeholder="Last Name" [(ngModel)]="model.lastname" name="lastname"
-                    #lastname="ngModel" [ngClass]="{ 'is-invalid': f.submitted && lastname.invalid }" required />
+                  <input type="text" class="reg-input form-control" placeholder="Last Name" [(ngModel)]="model.lastname"
+                    name="lastname" #lastname="ngModel" [ngClass]="{ 'is-invalid': f.submitted && lastname.invalid }"
+                    required />
                 </td>
+              </tr>
+              <tr>
+                <td class="tab-input">Email:</td>
                 <td>
-                  <input type="email" class="form-control" placeholder="Email" [(ngModel)]="model.email" name="email"
+                  <input type="email" class="reg-input form-control" placeholder="Email" [(ngModel)]="model.email" name="email"
                     #email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && email.invalid }" required />
                 </td>
               </tr>
+
             </tbody>
           </table>
         </div>
-        <div class="col-12">
-          <div class="col-3 float-right">
-            <div class="col-12">
-              <div class="float-left ml-1" [hidden]="isaddemployee">
-                <button type="submit" class="btn btn-secondary">Save</button>
-              </div>
-              <div class="float-left ml-1" [hidden]="isaddemployee">
-                <button type="button" class="btn btn-secondary auto" (click)="removeemployee()">Cancel</button>
-              </div>
-            </div>
-
+        <div class="row ml-3">
+          <div class="mr-1" [hidden]="isaddemployee">
+            <button type="submit" class="btn btn-secondary">Save</button>
+          </div>
+          <div class="ml-1" [hidden]="isaddemployee">
+            <button type="button" class="btn btn-secondary auto" (click)="removeemployee()">Cancel</button>
           </div>
         </div>
       </form>
     </div>
   </div>
-  <div class="form-group">
-    <div class="table-responsive">
-      <table class="table">
-        <thead class="thead-light">
-          <tr>
-            <th scope="col">Nos</th>
-            <th scope="col">Employee ID</th>
-            <th scope="col">First Name</th>
-            <th scope="col">Last Name</th>
-            <th scope="col">Email</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let emp of employees$ | async let i= index">
-            <td>
-              {{i+1}}
-            </td>
-            <td>
-              {{emp.empid}}
-            </td>
-            <td>
-              {{emp.firstname}}
-            </td>
-            <td>
-              {{emp.lastname}}
-            </td>
-            <td>
-              {{emp.email}}
-            </td>
-            <td>
-              <a><img src="../../../assets/img/delete-button.jpg" (click)="removerow(emp)"></a>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+</div>
+<div class="row">
+  <div class="col">
+    <div class="form-group">
+      <div class="table-responsive">
+        <table class="table">
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">Nos</th>
+              <th scope="col">Employee ID</th>
+              <th scope="col">First Name</th>
+              <th scope="col">Last Name</th>
+              <th scope="col">Email</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let emp of employees$ | async let i= index">
+              <td>
+                {{i+1}}
+              </td>
+              <td>
+                {{emp.empid}}
+              </td>
+              <td>
+                {{emp.firstname}}
+              </td>
+              <td>
+                {{emp.lastname}}
+              </td>
+              <td>
+                {{emp.email}}
+              </td>
+              <td>
+                <a><img src="../../../assets/img/delete-button.jpg" (click)="removerow(emp)"></a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
-
-
-
 </div>
