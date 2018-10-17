@@ -4,6 +4,7 @@ import { Observable, of, BehaviorSubject } from 'rxjs'
 import { ClientState } from '../../store/reducers/admin'
 import { Store } from '@ngrx/store'
 import * as fromActions from '../../store/actions/client'
+import * as frmActions from '../../store/actions/email'
 import { ActivatedRoute } from '@angular/router';
 import { getClientEmployees } from '../../store/selectors/client';
 
@@ -54,7 +55,6 @@ export class AdminemployeesComponent implements OnInit {
       this.data = x
       if (this.data[0] !== undefined) {
         this.repertoireSubject.next(this.data[0].employees)
-
         this.employees$ = this.repertoireSubject.asObservable()
       }
     }))
@@ -78,6 +78,13 @@ export class AdminemployeesComponent implements OnInit {
     this.save(this.model)
 
 
+  }
+  publish() {
+    let details = {
+      clientId: this.clientId,
+      regcode: this.regcode
+    }
+    setTimeout(() => this.store.dispatch(new frmActions.MessageClientEmployees(JSON.stringify(details))))
   }
   removeemployee() {
     this.isaddemployee = true

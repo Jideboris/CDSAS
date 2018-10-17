@@ -31,6 +31,10 @@ export class LoginComponent implements OnInit {
       this.onSubmit()
     }
   }
+  errorInform() {
+    localStorage.setItem('isvalid', 'false')
+    this.message = "Username or password is invalid!!!"
+  }
   onSubmit() {
     let encryptedpass = encrypt(this.model.password)
     this.store.dispatch(new fromActions.GetLoginInfo(this.model.username))
@@ -38,15 +42,14 @@ export class LoginComponent implements OnInit {
 
     setTimeout(() => this.logininfo$.subscribe(x => {
       this.logininfo = x
-      console.log(this.logininfo)
       if (this.logininfo[0] !== undefined) {
         this.message = ''
         let info = this.logininfo[0]
         if (info.password === encryptedpass) {
           let role = info.logininfo.role
-          console.log(role)
           localStorage.setItem('role', role)
           localStorage.setItem('isvalid', 'true')
+          localStorage.setItem('isloggedin', 'true')
           switch (role) {
             case 'Superuser':
               this.router.navigateByUrl('/admin')
@@ -56,10 +59,12 @@ export class LoginComponent implements OnInit {
               break
           }
         }
+        else {
+          this.errorInform()
+        }
       }
       else {
-        localStorage.setItem('isvalid', 'false')
-        this.message = "Username or password is invalid!!!"
+        this.errorInform()
       }
     }))
   }
