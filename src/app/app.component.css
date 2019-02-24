@@ -52,11 +52,12 @@ body {
   
   .topnav a {
     float: left;
-    color: black;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #4f89bf;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    font-size: 14px;
   }
   
   .topnav a:hover {

@@ -1,0 +1,27 @@
+.format {
+    margin-left: 5%;
+    margin-right: 5%;
+     
+}
+.format h5,h3{
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #4f89bf;
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+.format h3,.format p a{
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #4f89bf;
+}
+.format p{
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+.format ul li{
+    margin-bottom: 10px;
+}
